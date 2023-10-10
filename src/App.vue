@@ -1,16 +1,9 @@
 <template>
-  <HomePage />
+  <router-link to="/">Главная</router-link>
+
+  <router-view />
 </template>
 
-<script>
-import HomePage from "./views/HomePage.vue";
-
-export default {
-  name: "App",
-  components: {
-    HomePage,
-  },
-};
-</script>
+<script></script>
 
 <style></style>
