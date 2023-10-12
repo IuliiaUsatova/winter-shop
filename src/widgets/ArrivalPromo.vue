@@ -1,17 +1,31 @@
 <script setup>
-import ButtonFragments from "@/fragments/ButtonFragments.vue";
-import SliderNewArrival from "./SliderNewArrival.vue";
+import ButtonFragments from "@/components/ButtonFragments.vue";
+import SliderNewArrival from "@/components/SliderNewArrival.vue";
 </script>
 
 <template>
-  <div class="new-arrival__block">
-    <h2>Новинки</h2>
-    <SliderNewArrival />
-    <ButtonFragments class="btn-black">Показать больше</ButtonFragments>
-  </div>
+  <section class="new-arrival">
+    <div class="container-slider">
+      <div class="new-arrival__block">
+        <h2>Новинки</h2>
+        <SliderNewArrival />
+        <ButtonFragments class="btn-black">Показать больше</ButtonFragments>
+      </div>
+    </div>
+  </section>
 </template>
 
 <style lang="css" scoped>
+.container-slider {
+  max-width: 1458px;
+  padding: 0px 49px;
+  margin: 0 auto;
+  position: relative;
+}
+.new-arrival {
+  position: relative;
+  height: 100%;
+}
 .new-arrival__block {
   display: flex;
   flex-direction: column;

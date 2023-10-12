@@ -1,21 +1,20 @@
 <script setup>
-import ButtonFragment from "@/fragments/ButtonFragments.vue";
+import ButtonFragment from "@/components/ButtonFragments.vue";
 </script>
 
 <template>
   <div class="container">
     <div class="benefits__block">
       <div class="benefits__block-loyalty">
-        <img src="../image/loyalty-icon.svg" alt="" />
+        <img src="@/assets/image/loyalty-icon.svg" alt="" />
         <h2>Программа лояльности</h2>
         <p>Зарабатывайте баллы и получайте преимущества</p>
         <ButtonFragment class="btn-white">Вступить в клуб</ButtonFragment>
       </div>
       <div class="benefits__block-discounts">
-        <img src="../image/mail-icon.svg" alt="" />
+        <img src="@/assets/image/mail-icon.svg" alt="" />
         <h2>Скидка -10%</h2>
         <p>За подписку на наши новости</p>
-
         <label for="custom-input" class="benefits__block-discounts-label">
           <input
             class="benefits__block-loyalty-input"
@@ -31,8 +30,6 @@ import ButtonFragment from "@/fragments/ButtonFragments.vue";
 </template>
 
 <style scoped>
-/* benefits */
-
 .container {
   max-width: 1380px;
   padding: 0 10px;
@@ -52,7 +49,7 @@ import ButtonFragment from "@/fragments/ButtonFragments.vue";
   gap: 20px;
   width: 100%;
   height: 789px;
-  background-image: url(../image/loyalty-bg.png);
+  background-image: url(@/assets/image/loyalty-bg.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -77,7 +74,7 @@ import ButtonFragment from "@/fragments/ButtonFragments.vue";
   gap: 20px;
   width: 100%;
   height: 789px;
-  background-image: url(../image/discount-bg.png);
+  background-image: url(@/assets/image/discount-bg.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -94,7 +91,6 @@ import ButtonFragment from "@/fragments/ButtonFragments.vue";
   color: #fff;
   text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
 }
-
 .benefits__block-discounts-label {
   position: relative;
   display: inline-block;
@@ -111,17 +107,14 @@ import ButtonFragment from "@/fragments/ButtonFragments.vue";
   background-position: center;
   cursor: pointer;
 }
-
 .benefits__block-discounts-label::before {
   left: 3%;
-  background-image: url("../image/mail-icon-black.svg");
+  background-image: url("@/assets/image/mail-icon-black.svg");
 }
-
 .benefits__block-discounts-label::after {
   right: 3%;
-  background-image: url("../image/next-icon.svg");
+  background-image: url("@/assets/image/next-icon.svg");
 }
-
 .benefits__block-loyalty-input {
   border: none;
   padding: 13px 214px 12px 47px;

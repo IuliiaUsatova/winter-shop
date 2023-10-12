@@ -1,4 +1,3 @@
-<script setup></script>
 <template>
   <header class="header">
     <div class="header-top">
@@ -7,7 +6,7 @@
           <ul class="menu-list menu-top__left">
             <li class="menu-item">
               <a class="menu-link menu-link__top" href="#">
-                <img src="../image/location-logo.svg" alt="location" />
+                <img src="@/assets/image/location-logo.svg" alt="location" />
                 <p class="region-link">Ваш регион доставки: Москва</p>
               </a>
             </li>
@@ -24,19 +23,19 @@
           <ul class="menu-list menu-top__right">
             <li class="menu-item">
               <a class="menu-link menu-link__top" href="#">
-                <img src="../image/delivery-logo.svg" alt="location" />
+                <img src="@/assets/image/delivery-logo.svg" alt="location" />
                 <p>Бесплатная доставка *</p>
               </a>
             </li>
             <li class="menu-item">
               <a class="menu-link menu-link__top" href="#">
-                <img src="../image/pay-logo.svg" alt="location" />
+                <img src="@/assets/image/pay-logo.svg" alt="location" />
                 <p>Оплата при получении</p>
               </a>
             </li>
             <li class="menu-item">
               <a class="menu-link menu-link__top" href="#">
-                <img src="../image/refund-logo.svg" alt="location" />
+                <img src="@/assets/image/refund-logo.svg" alt="location" />
                 <p>Возврат в течение 14 дней</p>
               </a>
             </li>
@@ -44,7 +43,6 @@
         </nav>
       </div>
     </div>
-
     <div class="header-middle">
       <div class="container">
         <nav class="nav nav-middle">
@@ -59,33 +57,31 @@
               <a class="menu-link menu-link__middle" href="#">Детям</a>
             </li>
           </ul>
-
           <a class="menu-link" href="#"
-            ><img src="../image/main-logo.svg" alt="main-logo"
+            ><img src="@/assets/image/main-logo.svg" alt="main-logo"
           /></a>
-
           <ul class="menu-list menu-middle__right">
             <li class="menu-item">
               <a class="menu-link menu-link__middle" href="#">
-                <img src="../image/login-logo.svg" alt="login-logo" />
+                <img src="@/assets/image/login-logo.svg" alt="login-logo" />
                 <p>войти</p>
               </a>
             </li>
             <li class="menu-item">
               <a class="menu-link menu-link__middle" href="#">
-                <img src="../image/star-logo.svg" alt="star-logo" />
+                <img src="@/assets/image/star-logo.svg" alt="star-logo" />
                 <p>избранное</p>
               </a>
             </li>
             <li class="menu-item">
               <a class="menu-link menu-link__middle" href="#">
-                <img src="../image/basket-logo.svg" alt="basket-logo" />
+                <img src="@/assets/image/basket-logo.svg" alt="basket-logo" />
                 <p>корзина</p>
               </a>
             </li>
             <li class="menu-item">
               <a class="menu-link menu-link__middle" href="#">
-                <img src="../image/search-logo.svg" alt="search-logo" />
+                <img src="@/assets/image/search-logo.svg" alt="search-logo" />
                 <p>поиск</p>
               </a>
             </li>
@@ -93,7 +89,6 @@
         </nav>
       </div>
     </div>
-
     <div class="header-bottom">
       <div class="container">
         <nav class="nav nav-bottom">
@@ -152,8 +147,6 @@
   padding: 0 10px;
   margin: 0 auto;
 }
-
-/* header */
 .header-top {
   background-color: #000;
 }
@@ -188,7 +181,7 @@
 .region-link::after {
   content: "";
   position: absolute;
-  top: 22px;
+  top: 10px;
   right: -17px;
   width: 5px;
   height: 5px;
@@ -228,12 +221,9 @@
 .menu-link__middle img {
   width: 24px;
 }
-
-/* header-bottom */
 .header-bottom {
   background-color: #f9f9f9;
 }
-
 .nav-bottom {
   padding: 17px 0 18px;
 }

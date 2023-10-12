@@ -1,37 +1,33 @@
-<script setup></script>
-
 <template>
   <footer class="footer">
     <div class="container">
       <div class="footer__top">
-        <img src="../image/footer-logo.svg" alt="" />
+        <img src="@/assets/image/footer-logo.svg" alt="" />
         <div class="footer__top-sales-block">
           <div class="sales-block__left">
             <img
               class="sales-block__left-img"
-              src="../image/mail-icon.svg"
+              src="@/assets/image/mail-icon.svg"
               alt=""
             />
             <p>Подпишись на рассылку и получи <span>-10%</span> скидку</p>
           </div>
           <div class="sales-block__right">
-            <img src="../image/next-icon-white.svg" alt="" />
+            <img src="@/assets/image/next-icon-white.svg" alt="" />
           </div>
         </div>
       </div>
-
       <div class="footer-middle">
         <div class="footer-middle__left-block">
           <p>Доступ к ранним релизам в приложении</p>
           <div class="left-block__link-item">
             <div class="left-block__market">
-              <img src="../image/app-store-logo.svg" alt="" />
-              <img src="../image/android-icon.svg" alt="" />
+              <img src="@/assets/image/app-store-logo.svg" alt="" />
+              <img src="@/assets/image/android-icon.svg" alt="" />
             </div>
-            <img src="../image/QR-icon.svg" alt="" />
+            <img src="@/assets/image/QR-icon.svg" alt="" />
           </div>
         </div>
-
         <div class="footer-middle__middle-block">
           <p class="middle-block__title">Контакты</p>
           <ul class="middle-block__contacts">
@@ -105,23 +101,22 @@
           </div>
         </div>
       </div>
-
       <div class="footer-bottom">
         <ul class="footer-bottom__social-link">
           <li>
-            <a href=""><img src="../image/twitter.svg" /></a>
+            <a href=""><img src="@/assets/image/twitter.svg" /></a>
           </li>
           <li>
-            <a href=""><img src="../image/facebook.svg" /></a>
+            <a href=""><img src="@/assets/image/facebook.svg" /></a>
           </li>
           <li>
-            <a href=""><img src="../image/twitch.svg" /></a>
+            <a href=""><img src="@/assets/image/twitch.svg" /></a>
           </li>
           <li>
-            <a href=""><img src="../image/youtube.svg" /></a>
+            <a href=""><img src="@/assets/image/youtube.svg" /></a>
           </li>
           <li>
-            <a href=""><img src="../image/instagram.svg" /></a>
+            <a href=""><img src="@/assets/image/instagram.svg" /></a>
           </li>
         </ul>
         <p>© 2020 Brd.ru. Все права защищены</p>
@@ -131,8 +126,6 @@
 </template>
 
 <style scoped>
-/* footer */
-
 .container {
   max-width: 1380px;
   padding: 0 10px;
@@ -140,7 +133,7 @@
 }
 .footer {
   color: #fff;
-  background-image: url(../image/footer-bg.jpg);
+  background-image: url(@/assets/image/footer-bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -173,7 +166,6 @@
   display: flex;
   justify-content: space-between;
 }
-
 .left-block__market {
   display: flex;
   flex-direction: column;
@@ -184,7 +176,6 @@
   padding-top: 31px;
   display: flex;
 }
-
 .footer-middle__middle-block {
   display: flex;
   flex-direction: column;
@@ -224,7 +215,7 @@
 }
 .middle-block__tel::before {
   content: "";
-  background-image: url(../image/phone-icon.svg);
+  background-image: url(@/assets/image/phone-icon.svg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -237,7 +228,7 @@
 }
 .middle-block__mail::before {
   content: "";
-  background-image: url(../image/mail-icon.svg);
+  background-image: url(@/assets/image/mail-icon.svg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -248,16 +239,13 @@
   width: 25px;
   height: 20px;
 }
-
 .footer-middle__right-block {
   display: flex;
   gap: 130px;
 }
-
 .footer-middle__right-block p {
   margin-bottom: 25px;
 }
-
 .right-block__item {
   color: #bdbdbd;
   font-size: 12px;
@@ -265,14 +253,12 @@
 .right-block__link {
   margin-bottom: 20px;
 }
-
 .footer-bottom {
   display: flex;
   justify-content: space-between;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   padding: 30px 0 50px;
 }
-
 .footer-bottom p {
   color: #bdbdbd;
   font-size: 12px;

@@ -1,32 +1,34 @@
 <script setup>
-import LogoList from "../fragments/LogoList.vue";
+import LogoList from "../components/LogoList.vue";
 import PromoProduct from "../components/PromoProduct.vue";
 </script>
 
 <template>
-  <div class="promotion__block">
-    <div class="promotion__logo-block">
-      <ul class="promotion__logo-list">
-        <LogoList />
-      </ul>
+  <section>
+    <div class="container">
+      <div class="promotion__block">
+        <div class="promotion__logo-block">
+          <LogoList />
+        </div>
+        <div class="promotion__promo-products">
+          <PromoProduct />
+        </div>
+      </div>
     </div>
-    <div class="promotion__promo-products">
-      <PromoProduct />
-    </div>
-  </div>
+  </section>
 </template>
 
 <style lang="css" scoped>
+.container {
+  max-width: 1380px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
 .promotion__block {
   padding: 55px 0 100px;
 }
 .promotion__logo-block {
   padding: 0 32px 55px;
-}
-.promotion__logo-list {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 .promotion__promo-products {
   position: relative;

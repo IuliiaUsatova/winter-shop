@@ -22,7 +22,7 @@ onMounted(() => {
   <div class="new-arrival__block-slider swiper-arrival">
     <div class="swiper-wrapper">
       <div class="swiper-slide swiper-slide__arrival">
-        <img class="arrival-img" src="../image/arrival-1.png" alt="" />
+        <img class="arrival-img" src="@/assets/image/arrival-1.png" alt="" />
         <div class="new-arrival__details">
           <h2>LIB TECH</h2>
           <p>Мужской Сноуборд</p>
@@ -30,7 +30,7 @@ onMounted(() => {
         </div>
       </div>
       <div class="swiper-slide swiper-slide__arrival">
-        <img class="arrival-img" src="../image/arrival-2.png" alt="" />
+        <img class="arrival-img" src="@/assets/image/arrival-2.png" alt="" />
         <div class="new-arrival__details">
           <h2>LIB TECH</h2>
           <p>Мужской Сноуборд</p>
@@ -39,7 +39,7 @@ onMounted(() => {
       </div>
       <div class="swiper-slide swiper-slide__arrival">
         <div class="arrival-product">
-          <img class="arrival-img" src="../image/arrival-3.png" alt="" />
+          <img class="arrival-img" src="@/assets/image/arrival-3.png" alt="" />
           <span class="arrival-sales">-50%</span>
         </div>
         <div class="new-arrival__details">
@@ -52,7 +52,7 @@ onMounted(() => {
         </div>
       </div>
       <div class="swiper-slide swiper-slide__arrival">
-        <img class="arrival-img" src="../image/arrival-4.png" alt="" />
+        <img class="arrival-img" src="@/assets/image/arrival-4.png" alt="" />
         <div class="new-arrival__details">
           <h2>LIB TECH</h2>
           <p>Мужской Сноуборд</p>
@@ -61,17 +61,15 @@ onMounted(() => {
       </div>
     </div>
     <div class="arrival-button swiper-button-prev">
-      <img src="../image/arrow-left.svg" alt="" />
+      <img src="@/assets/image/arrow-left.svg" alt="" />
     </div>
     <div class="arrival-button swiper-button-next">
-      <img src="../image/arrow-right.svg" alt="" />
+      <img src="@/assets/image/arrow-right.svg" alt="" />
     </div>
   </div>
 </template>
 
 <style scoped>
-/* new-arrival-slider */
-
 .arrival-img {
   display: block;
   width: 100%;
@@ -92,15 +90,12 @@ onMounted(() => {
 .swiper-slide {
   width: 80%;
 }
-
 .swiper-slide:nth-child(2n) {
   width: 60%;
 }
-
 .swiper-slide:nth-child(3n) {
   width: 40%;
 }
-
 .arrival-button {
   z-index: 1;
   position: absolute;

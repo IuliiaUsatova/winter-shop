@@ -12,7 +12,8 @@
   "dependencies": {
     "swiper": "^10.3.1",
     "vue": "^3.2.13",
-    "vue-router": "^4.0.3"
+    "vue-router": "^4.0.3",
+    "vuelidate": "^0.7.7"
   },
   "devDependencies": {
     "@types/jest": "^27.0.1",

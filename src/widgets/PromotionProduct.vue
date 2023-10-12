@@ -11,27 +11,34 @@ const products = [
 </script>
 
 <template>
-  <div
-    v-for="(product, index) in products"
-    :key="index"
-    class="promotion-product__main-product"
-  >
-    <img :src="product.image" :alt="product.alt" />
-    <h3>{{ product.title }}</h3>
-    <p>
-      {{ product.description }}
-    </p>
-  </div>
+  <section>
+    <div class="container">
+      <div
+        v-for="(product, index) in products"
+        :key="index"
+        class="promotion-product__main-product"
+      >
+        <img :src="product.image" :alt="product.alt" />
+        <h3>{{ product.title }}</h3>
+        <p>
+          {{ product.description }}
+        </p>
+      </div>
+    </div>
+  </section>
 </template>
 
 <style scoped>
-/* promotion-product */
+.container {
+  max-width: 1380px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
 .promotion-product__main-product {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 .promotion-product__main-product img {
   max-width: 1360px;
   width: 100%;

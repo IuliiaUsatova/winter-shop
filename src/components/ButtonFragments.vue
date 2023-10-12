@@ -1,5 +1,3 @@
-<script setup></script>
-
 <template>
   <button class="btn"><slot></slot></button>
 </template>
@@ -12,7 +10,6 @@
   font-weight: 500;
   line-height: 1.9;
 }
-
 .btn-black {
   max-width: 322px;
   width: 100%;
@@ -21,7 +18,6 @@
   padding: 10px 90px;
   margin-top: 75px;
 }
-
 .btn-white {
   max-width: 292px;
   width: 100%;
