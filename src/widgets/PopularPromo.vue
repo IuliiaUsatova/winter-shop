@@ -1,6 +1,37 @@
 <script setup>
 import ButtonFragments from "@/components/ButtonFragments.vue";
 import SliderNewArrival from "@/components/SliderNewArrival.vue";
+import { ref } from "vue";
+
+const products = ref([
+  {
+    image: "@/assets/image/arrival-1.png",
+    title: "LIB TECH",
+    description: "Мужской Сноуборд",
+    price: "34392 ₽",
+  },
+  {
+    image: "@/assets/image/arrival-2.png",
+    title: "LIB TECH",
+    description: "Мужской Сноуборд",
+    price: "34392 ₽",
+  },
+  {
+    image: "@/assets/image/arrival-3.png",
+    title: "LIB TECH",
+    description: "Мужской Сноуборд",
+    price: "34392 ₽",
+    oldPrice: "34392 ₽",
+    newPrice: "17392 ₽",
+    sale: "-50%",
+  },
+  {
+    image: "@/assets/image/arrival-4.png",
+    title: "LIB TECH",
+    description: "Мужской Сноуборд",
+    price: "34392 ₽",
+  },
+]);
 </script>
 
 <template>
@@ -8,7 +39,10 @@ import SliderNewArrival from "@/components/SliderNewArrival.vue";
     <div class="container-slider">
       <div class="popular-collection__block">
         <h2>DC Shoes популярное в коллекции</h2>
-        <SliderNewArrival class="popular-collection__block-slider" />
+        <SliderNewArrival
+          :products="products"
+          class="popular-collection__block-slider"
+        />
         <ButtonFragments class="btn-black">Показать больше</ButtonFragments>
       </div>
     </div>

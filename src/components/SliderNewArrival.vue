@@ -2,6 +2,12 @@
 import { ref, onMounted } from "vue";
 import Swiper from "swiper";
 import "swiper/css";
+import { defineProps } from "vue";
+const products = defineProps([
+  {
+    products: Array,
+  },
+]);
 
 const swiperInstanceArrival = ref(null);
 
@@ -21,42 +27,34 @@ onMounted(() => {
 <template>
   <div class="new-arrival__block-slider swiper-arrival">
     <div class="swiper-wrapper">
-      <div class="swiper-slide swiper-slide__arrival">
-        <img class="arrival-img" src="@/assets/image/arrival-1.png" alt="" />
+      <div
+        v-for="(product, index) in products"
+        :key="index"
+        class="swiper-slide swiper-slide__arrival"
+      >
+        <img class="arrival-img" :src="product.image" alt="" />
         <div class="new-arrival__details">
-          <h2>LIB TECH</h2>
-          <p>Мужской Сноуборд</p>
-          <span>34392 ₽</span>
+          <h2>{{ product.title }}</h2>
+          <p>{{ product.description }}</p>
+          <span>{{ product.price }}</span>
         </div>
       </div>
-      <div class="swiper-slide swiper-slide__arrival">
-        <img class="arrival-img" src="@/assets/image/arrival-2.png" alt="" />
-        <div class="new-arrival__details">
-          <h2>LIB TECH</h2>
-          <p>Мужской Сноуборд</p>
-          <span>34392 ₽</span>
-        </div>
-      </div>
-      <div class="swiper-slide swiper-slide__arrival">
+      <div
+        v-for="(product, index) in products"
+        :key="index"
+        class="swiper-slide swiper-slide__arrival"
+      >
         <div class="arrival-product">
-          <img class="arrival-img" src="@/assets/image/arrival-3.png" alt="" />
-          <span class="arrival-sales">-50%</span>
+          <img class="arrival-img" :src="product.image" alt="" />
+          <span class="arrival-sales">{{ product.sale }}</span>
         </div>
         <div class="new-arrival__details">
-          <h2>LIB TECH</h2>
-          <p>Мужской Сноуборд</p>
+          <h2>{{ product.title }}</h2>
+          <p>{{ product.description }}</p>
           <div class="new-arrival__price">
-            <span class="new-arrival__old-price">34392 ₽</span>
-            <span class="new-arrival__new-price">17392 ₽</span>
+            <span class="new-arrival__old-price">{{ product.oldPrice }}</span>
+            <span class="new-arrival__new-price">{{ product.newPrice }}</span>
           </div>
-        </div>
-      </div>
-      <div class="swiper-slide swiper-slide__arrival">
-        <img class="arrival-img" src="@/assets/image/arrival-4.png" alt="" />
-        <div class="new-arrival__details">
-          <h2>LIB TECH</h2>
-          <p>Мужской Сноуборд</p>
-          <span>34392 ₽</span>
         </div>
       </div>
     </div>

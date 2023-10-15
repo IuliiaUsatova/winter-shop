@@ -1,16 +1,8 @@
 <script setup>
-const products = [
-  {
-    image: "promo-img-1.png",
-    alt: "Промоакция-1",
-    title: "НАЗВАНИЕ АКЦИИ №1",
-  },
-  {
-    image: "promo-img-2.png",
-    alt: "Промоакция-1",
-    title: "НАЗВАНИЕ АКЦИИ №2",
-  },
-];
+import { defineProps } from "vue";
+const products = defineProps({
+  products: Array,
+});
 </script>
 
 <template>

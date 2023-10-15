@@ -2,8 +2,13 @@
 import { ref, onMounted } from "vue";
 import Swiper from "swiper";
 import "swiper/css";
+import defineProps from "vue";
 
 const swiperInstance = ref(null);
+
+const items = defineProps({
+  items: Array,
+});
 
 onMounted(() => {
   swiperInstance.value = new Swiper(".swiper", {
@@ -22,29 +27,15 @@ onMounted(() => {
   <section class="collection-block">
     <div class="collection-slider swiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide collection-item">
-          <img
-            class="collection-img"
-            src="@/assets/image/collection-img-1.jpg"
-            alt=""
-          />
-          <div class="collection-item__sales"><p>WINTER SALE ДО -70%</p></div>
-        </div>
-        <div class="swiper-slide collection-item">
-          <img
-            class="collection-img"
-            src="@/assets/image/collection-img-2.jpg"
-            alt=""
-          />
-          <div class="collection-item__sales"><p>WINTER SALE ДО -50%</p></div>
-        </div>
-        <div class="swiper-slide collection-item">
-          <img
-            class="collection-img"
-            src="@/assets/image/collection-img-3.jpg"
-            alt=""
-          />
-          <div class="collection-item__sales"><p>WINTER SALE ДО -30%</p></div>
+        <div
+          v-for="(item, index) in items"
+          :key="index"
+          class="swiper-slide collection-item"
+        >
+          <img class="collection-img" :src="item.image" alt="" />
+          <div class="collection-item__sales">
+            <p>WINTER SALE ДО {{ item.text }}</p>
+          </div>
         </div>
       </div>
       <div class="collection-button swiper-button-prev">

@@ -1,5 +1,5 @@
 <script setup>
-import SliderMain from "../widgets/SliderMain.vue";
+import SliderMain from "../widgets/SliderMain/SliderMain.vue";
 import LogoPromo from "../widgets/LogoPromo.vue";
 import PromotionProduct from "../widgets/PromotionProduct.vue";
 import HeaderComponent from "../fragments/HeaderComponent.vue";
