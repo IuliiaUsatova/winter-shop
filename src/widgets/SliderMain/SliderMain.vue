@@ -4,11 +4,15 @@ import SliderCollection from "../../components/SliderCollection.vue";
 
 const sliderItems = ref([
   {
-    image: "image/collection-img-1.jpg",
+    image: "./widgets/SliderMain/image/collection-img-1.jpg",
     text: "50%",
   },
   {
-    image: "image/collection-img-2.jpg",
+    image: "./widgets/SliderMain/image/collection-img-2.jpg",
+    text: "70%",
+  },
+  {
+    image: "./widgets/SliderMain/image/collection-img-3.jpg",
     text: "70%",
   },
 ]);

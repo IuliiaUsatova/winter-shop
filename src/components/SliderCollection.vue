@@ -1,12 +1,11 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, defineProps } from "vue";
 import Swiper from "swiper";
 import "swiper/css";
-import defineProps from "vue";
 
 const swiperInstance = ref(null);
 
-const items = defineProps({
+const props = defineProps({
   items: Array,
 });
 
@@ -28,7 +27,7 @@ onMounted(() => {
     <div class="collection-slider swiper">
       <div class="swiper-wrapper">
         <div
-          v-for="(item, index) in items"
+          v-for="(item, index) in props.items"
           :key="index"
           class="swiper-slide collection-item"
         >

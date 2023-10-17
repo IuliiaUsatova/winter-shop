@@ -3,11 +3,9 @@ import { ref, onMounted } from "vue";
 import Swiper from "swiper";
 import "swiper/css";
 import { defineProps } from "vue";
-const products = defineProps([
-  {
-    products: Array,
-  },
-]);
+const props = defineProps({
+  products: Array,
+});
 
 const swiperInstanceArrival = ref(null);
 
@@ -27,36 +25,25 @@ onMounted(() => {
 <template>
   <div class="new-arrival__block-slider swiper-arrival">
     <div class="swiper-wrapper">
-      <div
-        v-for="(product, index) in products"
-        :key="index"
-        class="swiper-slide swiper-slide__arrival"
-      >
-        <img class="arrival-img" :src="product.image" alt="" />
-        <div class="new-arrival__details">
-          <h2>{{ product.title }}</h2>
-          <p>{{ product.description }}</p>
-          <span>{{ product.price }}</span>
-        </div>
-      </div>
-      <div
-        v-for="(product, index) in products"
-        :key="index"
-        class="swiper-slide swiper-slide__arrival"
-      >
-        <div class="arrival-product">
-          <img class="arrival-img" :src="product.image" alt="" />
-          <span class="arrival-sales">{{ product.sale }}</span>
-        </div>
-        <div class="new-arrival__details">
-          <h2>{{ product.title }}</h2>
-          <p>{{ product.description }}</p>
-          <div class="new-arrival__price">
-            <span class="new-arrival__old-price">{{ product.oldPrice }}</span>
-            <span class="new-arrival__new-price">{{ product.newPrice }}</span>
+      <template v-for="(product, index) in props.products" :key="index">
+        <div class="swiper-slide swiper-slide__arrival">
+          <div class="arrival-product">
+            <img class="arrival-img" :src="product.image" alt="" />
+            <span v-if="product.sale" class="arrival-sales">{{
+              product.sale
+            }}</span>
+          </div>
+          <div class="new-arrival__details">
+            <h2>{{ product.title }}</h2>
+            <p>{{ product.description }}</p>
+            <span v-if="product.price">{{ product.price }}</span>
+            <div v-if="product.sale" class="new-arrival__price">
+              <span class="new-arrival__old-price">{{ product.oldPrice }}</span>
+              <span class="new-arrival__new-price">{{ product.newPrice }}</span>
+            </div>
           </div>
         </div>
-      </div>
+      </template>
     </div>
     <div class="arrival-button swiper-button-prev">
       <img src="@/assets/image/arrow-left.svg" alt="" />

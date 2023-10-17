@@ -5,11 +5,7 @@
         <img src="@/assets/image/footer-logo.svg" alt="" />
         <div class="footer__top-sales-block">
           <div class="sales-block__left">
-            <img
-              class="sales-block__left-img"
-              src="@/assets/image/mail-icon.svg"
-              alt=""
-            />
+            <img class="sales-block__left-img" src="mail-icon.svg" alt="" />
             <p>Подпишись на рассылку и получи <span>-10%</span> скидку</p>
           </div>
           <div class="sales-block__right">

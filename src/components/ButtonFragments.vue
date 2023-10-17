@@ -9,6 +9,7 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 1.9;
+  background-color: transparent;
 }
 .btn-black {
   max-width: 322px;

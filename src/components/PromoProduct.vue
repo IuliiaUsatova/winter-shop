@@ -1,13 +1,13 @@
 <script setup>
 import { defineProps } from "vue";
-const products = defineProps({
+const props = defineProps({
   products: Array,
 });
 </script>
 
 <template>
   <div
-    v-for="(product, index) in products"
+    v-for="(product, index) in props.products"
     :key="index"
     class="promotion__product"
   >

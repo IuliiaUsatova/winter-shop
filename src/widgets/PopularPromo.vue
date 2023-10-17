@@ -20,7 +20,6 @@ const products = ref([
     image: "@/assets/image/arrival-3.png",
     title: "LIB TECH",
     description: "Мужской Сноуборд",
-    price: "34392 ₽",
     oldPrice: "34392 ₽",
     newPrice: "17392 ₽",
     sale: "-50%",
