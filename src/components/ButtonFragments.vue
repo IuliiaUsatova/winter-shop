@@ -1,5 +1,20 @@
+<script setup>
+const props = defineProps({
+  isBlack: Boolean,
+  isWhite: Boolean,
+});
+</script>
+
 <template>
-  <button class="btn"><slot></slot></button>
+  <button
+    :class="{
+      'btn-black': props.isBlack,
+      'btn-white': props.isWhite,
+    }"
+    class="btn"
+  >
+    <slot></slot>
+  </button>
 </template>
 
 <style scoped>

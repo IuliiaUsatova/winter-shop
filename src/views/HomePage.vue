@@ -4,7 +4,7 @@ import LogoPromo from "../widgets/LogoPromo.vue";
 import PromotionProduct from "../widgets/PromotionProduct.vue";
 import HeaderComponent from "../fragments/HeaderComponent.vue";
 import FooterComponent from "../fragments/FooterComponent.vue";
-import BenefitsInfo from "../widgets/BenefitsInfo.vue";
+import BenefitsInfo from "../widgets/BenefitsInfo/BenefitsInfo.vue";
 import ArrivalPromo from "../widgets/ArrivalPromo.vue";
 import PopularPromo from "../widgets/PopularPromo.vue";
 </script>

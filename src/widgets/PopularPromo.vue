@@ -5,19 +5,19 @@ import { ref } from "vue";
 
 const products = ref([
   {
-    image: "@/assets/image/arrival-1.png",
+    image: require("@/assets/image/arrival-1.png"),
     title: "LIB TECH",
     description: "Мужской Сноуборд",
     price: "34392 ₽",
   },
   {
-    image: "@/assets/image/arrival-2.png",
+    image: require("@/assets/image/arrival-2.png"),
     title: "LIB TECH",
     description: "Мужской Сноуборд",
     price: "34392 ₽",
   },
   {
-    image: "@/assets/image/arrival-3.png",
+    image: require("@/assets/image/arrival-3.png"),
     title: "LIB TECH",
     description: "Мужской Сноуборд",
     oldPrice: "34392 ₽",
@@ -25,7 +25,7 @@ const products = ref([
     sale: "-50%",
   },
   {
-    image: "@/assets/image/arrival-4.png",
+    image: require("@/assets/image/arrival-4.png"),
     title: "LIB TECH",
     description: "Мужской Сноуборд",
     price: "34392 ₽",

@@ -2,7 +2,6 @@
 import { ref, onMounted } from "vue";
 import Swiper from "swiper";
 import "swiper/css";
-import { defineProps } from "vue";
 const props = defineProps({
   products: Array,
 });
