@@ -1,6 +1,6 @@
 <script setup>
 import CardBenefit from "@/components/CardBenefit.vue";
-import ButtonFragment from "@/components/ButtonFragments.vue";
+import ButtonFragment from "@/components/TheButton.vue";
 import InputFragment from "@/components/InputFragment.vue";
 import { ref } from "vue";
 

@@ -1,5 +1,5 @@
 <script setup>
-import ButtonFragments from "@/components/ButtonFragments.vue";
+import ButtonFragments from "@/components/TheButton.vue";
 import SliderNewArrival from "@/components/SliderNewArrival.vue";
 import { ref } from "vue";
 

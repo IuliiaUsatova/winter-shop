@@ -1,23 +1,47 @@
 <script setup>
 import { ref } from "vue";
-import SliderCollection from "../../components/SliderCollection.vue";
+import TheSliderMini from "../../components/TheSliderMini.vue";
 
 const sliderItems = ref([
   {
     image: require("@/widgets/SliderMain/image/collection-img-1.jpg"),
-    text: "50%",
   },
   {
     image: require("@/widgets/SliderMain/image/collection-img-2.jpg"),
-    text: "70%",
   },
   {
     image: require("@/widgets/SliderMain/image/collection-img-3.jpg"),
-    text: "70%",
+  },
+  {
+    image: require("@/widgets/SliderMain/image/collection-img-1.jpg"),
+  },
+  {
+    image: require("@/widgets/SliderMain/image/collection-img-2.jpg"),
+  },
+  {
+    image: require("@/widgets/SliderMain/image/collection-img-3.jpg"),
+  },
+  {
+    image: require("@/widgets/SliderMain/image/collection-img-1.jpg"),
+  },
+  {
+    image: require("@/widgets/SliderMain/image/collection-img-2.jpg"),
+  },
+  {
+    image: require("@/widgets/SliderMain/image/collection-img-3.jpg"),
+  },
+  {
+    image: require("@/widgets/SliderMain/image/collection-img-1.jpg"),
+  },
+  {
+    image: require("@/widgets/SliderMain/image/collection-img-2.jpg"),
+  },
+  {
+    image: require("@/widgets/SliderMain/image/collection-img-3.jpg"),
   },
 ]);
 </script>
 
 <template>
-  <SliderCollection :items="sliderItems" />
+  <TheSliderMini :items="sliderItems" />
 </template>
