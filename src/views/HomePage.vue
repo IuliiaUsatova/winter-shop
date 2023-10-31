@@ -7,22 +7,10 @@ import FooterComponent from "../fragments/FooterComponent.vue";
 import BenefitsInfo from "../widgets/BenefitsInfo/BenefitsInfo.vue";
 import ArrivalPromo from "../widgets/ArrivalPromo.vue";
 import PopularPromo from "../widgets/PopularPromo.vue";
-import ElRadio from "../components/ElRadio.vue";
-import ElSlider from "../components/ElSlider.vue";
-import ElPagination from "../components/ElPagination.vue";
-import ElSelect from "../components/ElSelect.vue";
-import ElBreadCrumb from "../components/ElBreadCrumb.vue";
-import SliderMini from "../components/TheSliderMini.vue";
 </script>
 
 <template>
   <HeaderComponent />
-  <SliderMini />
-  <!-- <ElBreadCrumb /> -->
-  <!-- <ElSelect />
-  <ElPagination />
-  <ElRadio />
-  <ElSlider /> -->
   <SliderMain />
   <LogoPromo />
   <ArrivalPromo />
