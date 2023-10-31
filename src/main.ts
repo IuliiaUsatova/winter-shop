@@ -2,8 +2,7 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
 import "../src/assets/main.css";
-import "element-ui/lib/theme-chalk/index.css";
-import ElementUIComponent from "../src/plugins/ElementUIComponents.vue";
+import ElementPlus from "element-plus";
+import "element-plus/dist/index.css";
 
 createApp(App).use(router).mount("#app");
-App.component("element-ui-component", ElementUIComponent);
