@@ -97,7 +97,9 @@
               <a class="menu-link menu-link__bottom" href="#">Новинки</a>
             </li>
             <li class="menu-item">
-              <a class="menu-link menu-link__bottom" href="#">Сноуборд</a>
+              <router-link to="/snowboard" class="menu-link menu-link__bottom"
+                >Сноуборд</router-link
+              >
             </li>
             <li class="menu-item">
               <a class="menu-link menu-link__bottom" href="#">Лыжи</a>

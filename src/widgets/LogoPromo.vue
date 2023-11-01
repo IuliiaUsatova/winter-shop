@@ -1,6 +1,6 @@
 <script setup>
-import LogoList from "../components/LogoList.vue";
-import PromoProduct from "../components/PromoProduct.vue";
+import LogoList from "@/components/LogoList.vue";
+import PromoProduct from "@/components/PromoProduct.vue";
 import { ref } from "vue";
 
 const logoItems = ref([

@@ -1,4 +1,3 @@
-<script setup></script>
 <template>
   <label for="custom-input" class="benefits__block-discounts-label">
     <input

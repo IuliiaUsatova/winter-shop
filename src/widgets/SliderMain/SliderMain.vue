@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import TheSliderCollection from "../../components/TheSliderCollection.vue";
+import TheSliderCollection from "@/components/TheSliderCollection.vue";
 
 const sliderItems = ref([
   {

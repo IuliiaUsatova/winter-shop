@@ -1,7 +1,7 @@
 <script setup>
 import CardBenefit from "@/components/CardBenefit.vue";
 import ButtonFragment from "@/components/TheButton.vue";
-import InputFragment from "@/components/InputFragment.vue";
+import TheInput from "@/components/TheInput.vue";
 import { ref } from "vue";
 
 const items = ref([
@@ -18,7 +18,7 @@ const items = ref([
     description: "За подписку на наши новости",
     imageSrc: require("./image/mail-icon.svg"),
     backgroundImage: require("./image/discount-bg.png"),
-    component: InputFragment,
+    component: TheInput,
     attr: {},
   },
 ]);

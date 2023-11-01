@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import HomePage from "../views/HomePage.vue";
+import HomePage from "@/views/HomePage.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -8,9 +8,9 @@ const routes: Array<RouteRecordRaw> = [
     component: HomePage,
   },
   {
-    path: "/catalog",
-    name: "catalog",
-    component: () => import("../views/CatalogStepOne.vue"),
+    path: "/snowboard",
+    name: "snowboard",
+    component: () => import("@/views/SnowBoardPage.vue"),
   },
 ];
 
