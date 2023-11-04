@@ -1,16 +1,16 @@
 <script setup>
 import CardBenefit from "@/components/CardBenefit.vue";
-import ButtonFragment from "@/components/TheButton.vue";
+import TheButton from "@/components/TheButton.vue";
 import TheInput from "@/components/TheInput.vue";
-import { ref } from "vue";
+import { markRaw } from "vue";
 
-const items = ref([
+const items = markRaw([
   {
     title: "Программа лояльности",
     description: "Зарабатывайте баллы и получайте преимущества",
     imageSrc: require("./image/loyalty-icon.svg"),
     backgroundImage: require("./image/loyalty-bg.png"),
-    component: ButtonFragment,
+    component: TheButton,
     attr: { isWhite: true },
   },
   {

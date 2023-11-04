@@ -24,21 +24,23 @@ onMounted(() => {
 
 <template>
   <section class="collection-block">
-    <div class="collection-slider swiper">
-      <div class="swiper-wrapper">
-        <div
-          v-for="(item, index) in props.items"
-          :key="index"
-          class="swiper-slide category-item"
-        >
-          <img class="collection-img" :src="item.image" alt="" />
+    <div class="container-slider">
+      <div class="collection-slider swiper">
+        <div class="swiper-wrapper">
+          <div
+            v-for="(item, index) in props.items"
+            :key="index"
+            class="swiper-slide category-item"
+          >
+            <img class="collection-img" :src="item.image" alt="" />
+          </div>
         </div>
       </div>
       <div class="collection-button swiper-button-prev">
-        <img src="@/assets/image/arrow-left-big.svg" alt="" />
+        <img src="@/assets/image/arrow-left.svg" alt="" />
       </div>
       <div class="collection-button swiper-button-next">
-        <img src="@/assets/image/arrow-right-big.svg" alt="" />
+        <img src="@/assets/image/arrow-right.svg" alt="" />
       </div>
     </div>
   </section>
@@ -47,26 +49,34 @@ onMounted(() => {
 <style scoped>
 .collection-block {
   padding-top: 25px;
-  position: relative;
   height: 100%;
 }
+.container-slider {
+  max-width: 1458px;
+  padding: 0px 40px;
+  margin: 0 auto;
+  position: relative;
+}
 .swiper {
-  /* height: 100%;
-  width: 100%; */
+  height: 100%;
+  width: 100%;
 }
 .category-item {
-  width: 300px;
-  height: 300px;
-  border: 50%;
-  background-color: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 123px;
+  height: 123px;
+  border-radius: 50%;
+  background-color: #f9f9f9;
 }
 .collection-img {
   display: block;
-  width: 100%;
-  height: 100%;
+  width: 77px;
+  height: 77px;
   object-fit: cover;
 }
-.swiper-slide {
+/* .swiper-slide {
   width: 80%;
 }
 .swiper-slide:nth-child(2n) {
@@ -74,7 +84,7 @@ onMounted(() => {
 }
 .swiper-slide:nth-child(3n) {
   width: 40%;
-}
+} */
 .collection-button {
   z-index: 1;
   position: absolute;
