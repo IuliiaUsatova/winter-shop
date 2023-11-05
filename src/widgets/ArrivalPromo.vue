@@ -1,6 +1,7 @@
 <script setup>
 import ButtonFragments from "@/components/TheButton.vue";
 import SliderNewArrival from "@/components/SliderNewArrival.vue";
+import ProductCard from "@/components/ProductCard.vue";
 import { ref } from "vue";
 
 const products = ref([
@@ -38,7 +39,12 @@ const products = ref([
     <div class="container-slider">
       <div class="new-arrival__block">
         <h2>Новинки</h2>
-        <SliderNewArrival :products="products" />
+        <SliderNewArrival>
+          <ProductCard
+            v-for="(product, index) in products"
+            :key="index"
+            :products="products"
+        /></SliderNewArrival>
         <ButtonFragments class="btn-black">Показать больше</ButtonFragments>
       </div>
     </div>
