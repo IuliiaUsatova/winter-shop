@@ -1,37 +1,6 @@
 <script setup>
 import ButtonFragments from "@/components/TheButton.vue";
 import SliderNewArrival from "@/components/SliderNewArrival.vue";
-import ProductCard from "@/components/ProductCard.vue";
-import { ref } from "vue";
-
-const products = ref([
-  {
-    image: require("@/assets/image/arrival-1.png"),
-    title: "LIB TECH",
-    description: "Мужской Сноуборд",
-    price: "34392 ₽",
-  },
-  {
-    image: require("@/assets/image/arrival-2.png"),
-    title: "LIB TECH",
-    description: "Мужской Сноуборд",
-    price: "34392 ₽",
-  },
-  {
-    image: require("@/assets/image/arrival-3.png"),
-    title: "LIB TECH",
-    description: "Мужской Сноуборд",
-    oldPrice: "34392 ₽",
-    newPrice: "17392 ₽",
-    sale: "-50%",
-  },
-  {
-    image: require("@/assets/image/arrival-4.png"),
-    title: "LIB TECH",
-    description: "Мужской Сноуборд",
-    price: "34392 ₽",
-  },
-]);
 </script>
 
 <template>
@@ -39,12 +8,7 @@ const products = ref([
     <div class="container-slider">
       <div class="new-arrival__block">
         <h2>Новинки</h2>
-        <SliderNewArrival>
-          <ProductCard
-            v-for="(product, index) in products"
-            :key="index"
-            :products="products"
-        /></SliderNewArrival>
+        <SliderNewArrival></SliderNewArrival>
         <ButtonFragments class="btn-black">Показать больше</ButtonFragments>
       </div>
     </div>

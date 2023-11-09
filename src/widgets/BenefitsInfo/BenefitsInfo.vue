@@ -2,9 +2,8 @@
 import CardBenefit from "@/components/CardBenefit.vue";
 import TheButton from "@/components/TheButton.vue";
 import TheInput from "@/components/TheInput.vue";
-import { markRaw } from "vue";
 
-const items = markRaw([
+const items = [
   {
     title: "Программа лояльности",
     description: "Зарабатывайте баллы и получайте преимущества",
@@ -21,7 +20,7 @@ const items = markRaw([
     component: TheInput,
     attr: {},
   },
-]);
+];
 </script>
 
 <template>

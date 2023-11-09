@@ -8,17 +8,17 @@ const categoryData = ref([
   {
     title: "Категории товаров",
     label: "Сноуборды",
-    value: "3",
+    value: 3,
     peace: "10",
   },
   {
     title: "Размеры",
     label: "Крепления",
-    value: "6",
+    value: 6,
     peace: "1",
   },
 ]);
-const products = ref(
+const products = ref([
   {
     image: require("@/assets/image/arrival-1.png"),
     title: "LIB TECH",
@@ -38,8 +38,8 @@ const products = ref(
     oldPrice: "34392 ₽",
     newPrice: "17392 ₽",
     sale: "-50%",
-  }
-);
+  },
+]);
 </script>
 <template>
   <div class="snow-board__wrapper">
@@ -70,7 +70,7 @@ const products = ref(
           <ProductCard
             v-for="(product, index) in products"
             :key="index"
-            :products="products"
+            :products="product"
           />
         </div>
       </div>
