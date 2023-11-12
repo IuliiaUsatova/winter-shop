@@ -1,3 +1,7 @@
+<script setup>
+import GenderTabs from "@/fragments/HeaderFragment/Components/GenderTabs.vue";
+</script>
+
 <template>
   <header class="header">
     <div class="header-top">
@@ -46,17 +50,7 @@
     <div class="header-middle">
       <div class="container">
         <nav class="nav nav-middle">
-          <ul class="menu-list menu-middle__left">
-            <li class="menu-item">
-              <a class="menu-link menu-link__middle" href="#">Мужчинам</a>
-            </li>
-            <li class="menu-item">
-              <a class="menu-link menu-link__middle" href="#">Женщинам</a>
-            </li>
-            <li class="menu-item">
-              <a class="menu-link menu-link__middle" href="#">Детям</a>
-            </li>
-          </ul>
+          <GenderTabs />
           <a class="menu-link" href="#"
             ><img src="@/assets/image/main-logo.svg" alt="main-logo"
           /></a>
@@ -159,10 +153,6 @@
 .nav-top {
   padding: 15px 0;
 }
-.menu-list {
-  display: flex;
-  align-items: center;
-}
 .menu-top__left,
 .menu-top__right {
   gap: 30px;
@@ -196,7 +186,10 @@
 .nav-middle {
   padding: 22px 0;
 }
-.menu-middle__left,
+.menu-list {
+  display: flex;
+  align-items: center;
+}
 .menu-middle__right {
   gap: 25px;
 }
