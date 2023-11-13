@@ -1,5 +1,5 @@
 <script setup>
-import GenderTabs from "@/fragments/HeaderFragment/Components/GenderTabs.vue";
+import GenderTabs from "./components/GenderTabs.vue";
 </script>
 
 <template>
