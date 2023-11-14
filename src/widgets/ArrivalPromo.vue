@@ -8,7 +8,7 @@ import SliderNewArrival from "@/components/SliderNewArrival.vue";
     <div class="container-slider">
       <div class="new-arrival__block">
         <h2>Новинки</h2>
-        <SliderNewArrival></SliderNewArrival>
+        <SliderNewArrival />
         <ButtonFragments class="btn-black">Показать больше</ButtonFragments>
       </div>
     </div>
