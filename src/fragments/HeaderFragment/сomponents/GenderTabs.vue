@@ -1,10 +1,8 @@
 <script setup>
-import { ref } from "vue";
-
-const gender = ref("");
-
+import { useStore } from "@/stores/genderTabs/genderStore";
+const store = useStore();
 const changeGender = (newGender) => {
-  gender.value = newGender;
+  store.gender = newGender;
 };
 </script>
 
@@ -14,7 +12,7 @@ const changeGender = (newGender) => {
       <a
         class="menu-link"
         href="#"
-        :class="{ active: gender === 'Мужчинам' }"
+        :class="{ active: store.gender === 'Мужчинам' }"
         @click="changeGender('Мужчинам')"
         >Мужчинам</a
       >
@@ -23,7 +21,7 @@ const changeGender = (newGender) => {
       <a
         class="menu-link"
         href="#"
-        :class="{ active: gender === 'Женщинам' }"
+        :class="{ active: store.gender === 'Женщинам' }"
         @click="changeGender('Женщинам')"
         >Женщинам</a
       >
@@ -32,7 +30,7 @@ const changeGender = (newGender) => {
       <a
         class="menu-link"
         href="#"
-        :class="{ active: gender === 'Детям' }"
+        :class="{ active: store.gender === 'Детям' }"
         @click="changeGender('Детям')"
         >Детям</a
       >
