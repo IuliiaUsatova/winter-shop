@@ -1,38 +1,24 @@
 <script setup>
-import { useStore } from "@/stores/genderTabs/genderStore";
+import { useStore } from "@/stores/genderStore/genderStore";
 const store = useStore();
-const changeGender = (newGender) => {
-  store.gender = newGender;
-};
+store.changeGender();
+
+const categories = ["Мужчинам", "Женщинам", "Детям"];
 </script>
 
 <template>
-  <ul class="menu-list menu-middle__left">
-    <li class="menu-item">
+  <ul class="menu-list">
+    <li
+      class="menu-list__item"
+      v-for="(category, index) in categories"
+      :key="index"
+    >
       <a
         class="menu-link"
         href="#"
-        :class="{ active: store.gender === 'Мужчинам' }"
-        @click="changeGender('Мужчинам')"
-        >Мужчинам</a
-      >
-    </li>
-    <li class="menu-item">
-      <a
-        class="menu-link"
-        href="#"
-        :class="{ active: store.gender === 'Женщинам' }"
-        @click="changeGender('Женщинам')"
-        >Женщинам</a
-      >
-    </li>
-    <li class="menu-item">
-      <a
-        class="menu-link"
-        href="#"
-        :class="{ active: store.gender === 'Детям' }"
-        @click="changeGender('Детям')"
-        >Детям</a
+        :class="{ active: store.gender === category }"
+        @click="store.changeGender(category)"
+        >{{ category }}</a
       >
     </li>
   </ul>
@@ -41,9 +27,6 @@ const changeGender = (newGender) => {
 <style scoped>
 .menu-list {
   display: flex;
-  align-items: center;
-}
-.menu-middle__left {
   gap: 25px;
 }
 .menu-link {

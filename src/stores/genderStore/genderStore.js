@@ -3,7 +3,12 @@ import { defineStore } from "pinia";
 export const useStore = defineStore("genderStore", {
   state: () => {
     return {
-      gender: "Мужчинам",
+      gender: "",
     };
+  },
+  actions: {
+    changeGender(newGender) {
+      this.gender = newGender;
+    },
   },
 });

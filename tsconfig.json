@@ -24,7 +24,9 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx"
-, "src/fragments/HeaderFragment/сomponents/GenderTabs.js", "src/stores/genderTabs/genderStore.js"  ],
+    "tests/**/*.tsx",
+    "src/fragments/HeaderFragment/сomponents/GenderTabs.js",
+    "src/stores/genderStore/genderStore.js"
+  ],
   "exclude": ["node_modules"]
 }
