@@ -1,7 +1,6 @@
 <script setup>
-import { useStore } from "@/stores/genderStore/genderStore";
-const store = useStore();
-store.changeGender();
+import { useGenderStore } from "@/stores/genderStore/genderStore";
+const genderStore = useGenderStore();
 
 const categories = ["Мужчинам", "Женщинам", "Детям"];
 </script>
@@ -16,8 +15,8 @@ const categories = ["Мужчинам", "Женщинам", "Детям"];
       <a
         class="menu-link"
         href="#"
-        :class="{ active: store.gender === category }"
-        @click="store.changeGender(category)"
+        :class="{ active: genderStore.gender === category }"
+        @click="genderStore.changeGender(category)"
         >{{ category }}</a
       >
     </li>

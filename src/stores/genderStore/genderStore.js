@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-export const useStore = defineStore("genderStore", {
+export const useGenderStore = defineStore("genderStore", {
   state: () => {
     return {
       gender: "",

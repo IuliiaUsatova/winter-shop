@@ -2,6 +2,8 @@
 import PromoProduct from "@/components/PromoProduct.vue";
 import { ref } from "vue";
 import { ElBreadcrumb } from "element-plus";
+import { useGenderStore } from "@/stores/genderStore/genderStore";
+const genderStore = useGenderStore();
 
 const products = ref([
   {
@@ -26,7 +28,9 @@ const products = ref([
     <div class="container">
       <el-breadcrumb separator="/">
         <el-breadcrumb-item :to="{ path: '/' }">Главная</el-breadcrumb-item>
-        <el-breadcrumb-item><a href="/">Мужчинам</a></el-breadcrumb-item>
+        <el-breadcrumb-item
+          ><a href="/">{{ genderStore.gender }}</a></el-breadcrumb-item
+        >
         <el-breadcrumb-item>Сноуборд</el-breadcrumb-item>
       </el-breadcrumb>
       <div class="snowboard-deals-male">
