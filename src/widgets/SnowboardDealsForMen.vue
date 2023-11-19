@@ -26,13 +26,15 @@ const products = ref([
 <template>
   <div class="wrapper">
     <div class="container">
-      <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path: '/' }">Главная</el-breadcrumb-item>
-        <el-breadcrumb-item
-          ><a href="/">{{ genderStore.gender }}</a></el-breadcrumb-item
+      <ElBreadcrumb class="breadcrumb" separator="/">
+        <ElBreadcrumbItem :to="{ path: '/' }">Главная</ElBreadcrumbItem>
+        <ElBreadcrumbItem>Сноуборд</ElBreadcrumbItem>
+        <ElBreadcrumbItem
+          ><router-link :to="{ path: '/' }">{{
+            genderStore.gender
+          }}</router-link></ElBreadcrumbItem
         >
-        <el-breadcrumb-item>Сноуборд</el-breadcrumb-item>
-      </el-breadcrumb>
+      </ElBreadcrumb>
       <div class="snowboard-deals-male">
         <PromoProduct :products="products" />
       </div>
@@ -49,8 +51,11 @@ const products = ref([
   padding: 0 10px;
   margin: 0 auto;
 }
+.el-breadcrumb {
+  padding: 25px 0 0;
+}
 .snowboard-deals-male {
-  padding: 83px 0 50px;
+  padding: 44px 0 50px;
   display: flex;
   gap: 27px;
 }
