@@ -1,9 +1,14 @@
 <script setup>
 import PromoProduct from "@/components/PromoProduct.vue";
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { ElBreadcrumb } from "element-plus";
 import { useGenderStore } from "@/stores/genderStore/genderStore";
+
 const genderStore = useGenderStore();
+
+const choiceGender = computed(() => {
+  return genderStore.gender;
+});
 
 const products = ref([
   {
@@ -28,12 +33,12 @@ const products = ref([
     <div class="container">
       <ElBreadcrumb class="breadcrumb" separator="/">
         <ElBreadcrumbItem :to="{ path: '/' }">Главная</ElBreadcrumbItem>
-        <ElBreadcrumbItem>Сноуборд</ElBreadcrumbItem>
-        <ElBreadcrumbItem
+        <ElBreadcrumbItem v-if="genderStore.gender"
           ><router-link :to="{ path: '/' }">{{
-            genderStore.gender
+            choiceGender
           }}</router-link></ElBreadcrumbItem
         >
+        <ElBreadcrumbItem>Сноуборд</ElBreadcrumbItem>
       </ElBreadcrumb>
       <div class="snowboard-deals-male">
         <PromoProduct :products="products" />
