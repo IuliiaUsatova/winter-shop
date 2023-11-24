@@ -3,29 +3,7 @@ import { ref } from "vue";
 import ProductCard from "@/components/ProductCard.vue";
 import TheRadio from "@/components/TheRadio.vue";
 import KitStepper from "@/components/KitStepper.vue";
-const stepper = ref([
-  {
-    stepName: "Подбери борд",
-  },
-  {
-    stepDescription: "Укажите свой рост и вес",
-    stepNumber: "1",
-    buttonLabel: ["Рост: 190 см", "Вес: 300кг"],
-    imageSrc: require("@/assets/image/dimensions.svg"),
-  },
-  {
-    stepDescription: "Где планируете катать",
-    stepNumber: "2",
-    buttonLabel: "Укажите место",
-    imageSrc: require("@/assets/image/mountain.svg"),
-  },
-  {
-    stepDescription: "Ваш уровень катании",
-    stepNumber: "3",
-    buttonLabel: "Укажите ваш уровень",
-    imageSrc: require("@/assets/image/level.svg"),
-  },
-]);
+
 const categoryData = ref([
   {
     title: "Категории товаров",
@@ -67,11 +45,7 @@ const products = ref([
   <div class="snow-board__wrapper">
     <div class="container">
       <h1 class="snow-board__title">Сноуборд<sup>358</sup></h1>
-      <KitStepper
-        v-for="(step, index) in stepper"
-        :key="index"
-        :stepper="step"
-      />
+      <KitStepper />
       <div class="snow-board__section">
         <div class="snow-board__category">
           <TheRadio :items="categoryData" />
