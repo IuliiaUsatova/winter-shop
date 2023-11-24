@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import ProductCard from "@/components/ProductCard.vue";
 import TheRadio from "@/components/TheRadio.vue";
-import KitStepper from "@/components/KitStepper.vue";
+import KitStepper from "@/widgets/KitStepper/KitStepper.vue";
 
 const categoryData = ref([
   {
