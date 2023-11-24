@@ -1,15 +1,28 @@
 <script setup>
 import TheButton from "@/components/TheButton.vue";
+import TheSelect from "@/components/TheSelect.vue";
+import { ref } from "vue";
+
 const props = defineProps({ stepper: Object });
+const options = ["Вариант 1", "Вариант 2", "Вариант 3"];
+const isActiveSelect = ref(false);
+
+const toggleOptions = () => {
+  isActiveSelect.value = !isActiveSelect.value;
+};
 </script>
+
 <template>
   <ul class="stepper-block">
     <li class="stepper-block_number">{{ props.stepper.number }}</li>
     <li class="stepper-block_name">
       <span>{{ props.stepper.name }}</span>
-      <TheButton class="btn-underline btn-step">{{
+      <TheButton @click="toggleOptions" class="btn-underline btn-step">{{
         props.stepper.btnStep
       }}</TheButton>
+      <div v-if="isActiveSelect">
+        <TheSelect :options="options" />
+      </div>
     </li>
     <li><img :src="props.stepper.imgSrc" alt="" /></li>
   </ul>
