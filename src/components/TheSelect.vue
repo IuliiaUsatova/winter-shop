@@ -12,7 +12,7 @@ const props = defineProps({
         v-for="(option, index) in props.options"
         :key="index"
       >
-        {{ option }}
+        <a href="#">{{ option }}</a>
       </li>
     </ul>
   </div>
@@ -25,17 +25,23 @@ const props = defineProps({
   width: 100%;
   padding: 20px 15px;
   border-radius: 4px;
-  border: 1px solid var(--Grey, #ced4d7);
-  background: var(--White, #fff);
+  border: 1px solid #ced4d7;
+  background: #fff;
   z-index: 2;
 }
-.select-block_item {
+.select-block_item a {
   font-size: 12px;
   font-weight: 500;
   line-height: 20px;
   letter-spacing: -0.24px;
+  transition: text-decoration 0.5s ease;
 }
+
 .select-block_item + .select-block_item {
   margin-top: 10px;
+}
+
+.select-block_item a:hover {
+  text-decoration: underline;
 }
 </style>
