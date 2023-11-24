@@ -1,5 +1,5 @@
 <script setup>
-import ButtonFragments from "@/components/TheButton.vue";
+import TheButton from "@/components/TheButton.vue";
 import SliderNewArrival from "@/components/SliderNewArrival.vue";
 import { ref } from "vue";
 
@@ -42,7 +42,7 @@ const products = ref([
           :products="products"
           class="popular-collection__block-slider"
         />
-        <ButtonFragments class="btn-black">Показать больше</ButtonFragments>
+        <TheButton class="btn-black">Показать больше</TheButton>
       </div>
     </div>
   </section>

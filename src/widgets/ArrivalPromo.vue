@@ -1,5 +1,5 @@
 <script setup>
-import ButtonFragments from "@/components/TheButton.vue";
+import TheButton from "@/components/TheButton.vue";
 import SliderNewArrival from "@/components/SliderNewArrival.vue";
 </script>
 
@@ -9,7 +9,7 @@ import SliderNewArrival from "@/components/SliderNewArrival.vue";
       <div class="new-arrival__block">
         <h2>Новинки</h2>
         <SliderNewArrival />
-        <ButtonFragments class="btn-black">Показать больше</ButtonFragments>
+        <TheButton class="btn-black">Показать больше</TheButton>
       </div>
     </div>
   </section>

@@ -2,6 +2,7 @@
 const props = defineProps({
   isBlack: Boolean,
   isWhite: Boolean,
+  isUnderline: Boolean,
 });
 </script>
 
@@ -10,6 +11,7 @@ const props = defineProps({
     :class="{
       'btn-black': props.isBlack,
       'btn-white': props.isWhite,
+      'btn-underline': props.isUnderline,
     }"
     class="btn"
   >
@@ -26,6 +28,7 @@ const props = defineProps({
   line-height: 1.9;
   background-color: transparent;
 }
+
 .btn-black {
   max-width: 322px;
   width: 100%;
@@ -34,11 +37,16 @@ const props = defineProps({
   padding: 10px 90px;
   margin-top: 75px;
 }
+
 .btn-white {
   max-width: 292px;
   width: 100%;
   background-color: #fff;
   color: #000;
   padding: 10px 81px;
+}
+
+.btn-underline {
+  text-decoration: underline;
 }
 </style>

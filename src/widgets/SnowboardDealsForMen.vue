@@ -1,28 +1,26 @@
 <script setup>
 import PromoProduct from "@/components/PromoProduct.vue";
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { useGenderStore } from "@/stores/genderStore/genderStore";
 import TheBreadCrumbs from "@/components/TheBreadCrumbs.vue";
 
 const genderStore = useGenderStore();
-const breadcrumb = [
-  {
-    to: "/",
-    name: "Главная",
-  },
-  {
-    to: "/",
-    name: "Cноуборд",
-  },
-];
-if (genderStore.gender) {
-  const middleArray = Math.floor(breadcrumb.length / 2);
-  breadcrumb.splice(middleArray, 0, {
-    to: "/",
-    name: genderStore.gender,
-  });
-}
-
+const breadCrumb = computed(() => {
+  return [
+    {
+      to: "/",
+      name: "Главная",
+    },
+    {
+      to: "/",
+      name: genderStore.gender,
+    },
+    {
+      to: "/",
+      name: "Cноуборд",
+    },
+  ].filter(({ name }) => name !== "");
+});
 const products = ref([
   {
     image: require("@/assets/image/promo-1.jpg"),
@@ -44,16 +42,7 @@ const products = ref([
 <template>
   <div class="wrapper">
     <div class="container">
-      <TheBreadCrumbs :items="breadcrumb" />
-      <!-- <ElBreadcrumb separator="/">
-        <ElBreadcrumbItem :to="{ path: '/' }">Главная</ElBreadcrumbItem>
-        <ElBreadcrumbItem v-if="genderStore.gender"
-          ><router-link :to="{ path: '/' }">{{
-            genderStore.gender
-          }}</router-link></ElBreadcrumbItem
-        >
-        <ElBreadcrumbItem>Сноуборд</ElBreadcrumbItem>
-      </ElBreadcrumb> -->
+      <TheBreadCrumbs :items="breadCrumb" />
       <div class="snowboard-deals-male">
         <PromoProduct :products="products" />
       </div>

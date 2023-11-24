@@ -1,7 +1,9 @@
 <script setup>
 import { ElBreadcrumb } from "element-plus";
 
-const props = defineProps(["items"]);
+const props = defineProps({
+  items: Array,
+});
 </script>
 
 <template>
