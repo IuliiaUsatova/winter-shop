@@ -1,22 +1,15 @@
 <script setup>
 import TheButton from "@/components/TheButton.vue";
+const props = defineProps({ stepper: Object });
 </script>
 <template>
   <ul class="stepper-block">
-    <li class="stepper-block_number">2</li>
+    <li class="stepper-block_number">{{ props.number }}</li>
     <li class="stepper-block_name">
-      <span>Где планируете катать</span>
-      <TheButton class="btn-underline btn-step">Укажите место</TheButton>
+      <span>{{ props.name }}</span>
+      <TheButton class="btn-underline btn-step">{{ props.btnStep }}</TheButton>
     </li>
-    <li><img src="../image/mountain.svg" alt="" /></li>
-  </ul>
-  <ul class="stepper-block">
-    <li class="stepper-block_number">3</li>
-    <li class="stepper-block_name">
-      <span>Ваш уровень катании</span>
-      <TheButton class="btn-underline btn-step">Укажите ваш уровень</TheButton>
-    </li>
-    <li><img src="../image/level.svg" alt="" /></li>
+    <li><img src="props.imgSrc" alt="" /></li>
   </ul>
 </template>
 <style scoped>
