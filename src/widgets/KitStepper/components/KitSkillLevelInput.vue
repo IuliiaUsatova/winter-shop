@@ -4,12 +4,14 @@ const props = defineProps({ stepper: Object });
 </script>
 <template>
   <ul class="stepper-block">
-    <li class="stepper-block_number">{{ props.number }}</li>
+    <li class="stepper-block_number">{{ props.stepper.number }}</li>
     <li class="stepper-block_name">
-      <span>{{ props.name }}</span>
-      <TheButton class="btn-underline btn-step">{{ props.btnStep }}</TheButton>
+      <span>{{ props.stepper.name }}</span>
+      <TheButton class="btn-underline btn-step">{{
+        props.stepper.btnStep
+      }}</TheButton>
     </li>
-    <li><img src="props.imgSrc" alt="" /></li>
+    <li><img :src="props.stepper.imgSrc" alt="" /></li>
   </ul>
 </template>
 <style scoped>
