@@ -1,7 +1,13 @@
 <script setup>
+import { defineEmits } from "vue";
 const props = defineProps({
   options: Array,
 });
+const emit = defineEmits(["select"]);
+
+const selectOption = (option) => {
+  emit("select", option);
+};
 </script>
 
 <template>
@@ -11,8 +17,9 @@ const props = defineProps({
         class="select-block_item"
         v-for="(option, index) in props.options"
         :key="index"
+        @click="selectOption(option)"
       >
-        <a href="#">{{ option }}</a>
+        <router-link to="#">{{ option }}</router-link>
       </li>
     </ul>
   </div>

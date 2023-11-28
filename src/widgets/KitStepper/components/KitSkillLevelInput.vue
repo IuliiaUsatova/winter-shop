@@ -6,9 +6,14 @@ import { ref } from "vue";
 const props = defineProps({ stepper: Object });
 const options = ["Вариант 1", "Вариант 2", "Вариант 3"];
 const isActiveSelect = ref(false);
+const selected = ref("");
 
 const toggleOptions = () => {
   isActiveSelect.value = !isActiveSelect.value;
+};
+const optionSelect = (option) => {
+  selected.value = option;
+  console.log(selected.value);
 };
 </script>
 
@@ -21,7 +26,7 @@ const toggleOptions = () => {
         props.stepper.btnStep
       }}</TheButton>
       <div v-if="isActiveSelect">
-        <TheSelect :options="options" />
+        <TheSelect :options="options" @select="optionSelect" />
       </div>
     </li>
     <li><img :src="props.stepper.imgSrc" alt="" /></li>
