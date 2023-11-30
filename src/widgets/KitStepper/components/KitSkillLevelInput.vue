@@ -13,7 +13,7 @@ const toggleOptions = () => {
 };
 const optionSelect = (option) => {
   selected.value = option;
-  console.log(selected.value);
+  isActiveSelect.value = false;
 };
 </script>
 
@@ -23,7 +23,7 @@ const optionSelect = (option) => {
     <li class="stepper-block_name">
       <span>{{ props.stepper.name }}</span>
       <TheButton @click="toggleOptions" class="btn-underline btn-step">{{
-        props.stepper.btnStep
+        selected || props.stepper.btnStep
       }}</TheButton>
       <div v-if="isActiveSelect">
         <TheSelect :options="options" @select="optionSelect" />
