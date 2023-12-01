@@ -2,6 +2,15 @@
 import KitPicker from "./components/KitPicker.vue";
 import KitHeightWeightInput from "./components/KitHeightWeightInput.vue";
 import KitSkillLevelInput from "./components/KitSkillLevelInput.vue";
+import { ref } from "vue";
+
+const selectedHeight = ref("");
+const selectedWeight = ref("");
+
+const toggleAllSelect = (selectedHeight, selectedWeight) => {
+  selectedHeight.value = selectedHeight;
+  selectedWeight.value = selectedWeight;
+};
 
 const stepper = [
   {
@@ -23,7 +32,10 @@ const stepper = [
   <div class="stepper">
     <div class="stepper-blocks">
       <KitPicker />
-      <KitHeightWeightInput />
+      <KitHeightWeightInput
+        @height="toggleAllSelect"
+        @weight="toggleAllSelect"
+      />
       <KitSkillLevelInput
         v-for="(step, index) in stepper"
         :key="index"

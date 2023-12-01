@@ -3,6 +3,8 @@ import TheButton from "@/components/TheButton.vue";
 import TheSelect from "@/components/TheSelect.vue";
 import { ref } from "vue";
 
+const emit = defineEmits(["height", "weight"]);
+
 const stepperHeight = ["180 см", "190 см", "200 см"];
 const stepperWeight = ["300кг", "250кг", "275кг"];
 
@@ -11,11 +13,11 @@ const isActiveSelectWeight = ref(false);
 const selectedHeight = ref("");
 const selectedWeight = ref("");
 
-const toggleOptionsHeight = () => {
-  isActiveSelectHeight.value = !isActiveSelectHeight.value;
-};
-const toggleOptionsWeight = () => {
+const toggleOptions = (selectedWeight, selectedHeight) => {
   isActiveSelectWeight.value = !isActiveSelectWeight.value;
+  isActiveSelectHeight.value = !isActiveSelectHeight.value;
+  emit("weight", selectedWeight);
+  emit("height", selectedHeight);
 };
 const optionSelectHeight = (option) => {
   selectedHeight.value = option;
@@ -32,14 +34,14 @@ const optionSelectWeight = (option) => {
     <li class="stepper-block_name">
       <span>Укажите свой рост и вес</span>
 
-      <TheButton @click="toggleOptionsHeight" class="btn-underline btn-step"
+      <TheButton @click="toggleOptions" class="btn-underline btn-step"
         >Рост: {{ selectedHeight }}</TheButton
       >
       <div v-if="isActiveSelectHeight">
         <TheSelect :options="stepperHeight" @select="optionSelectHeight" />
       </div>
 
-      <TheButton @click="toggleOptionsWeight" class="btn-underline btn-step"
+      <TheButton @click="toggleOptions" class="btn-underline btn-step"
         >Вес: {{ selectedWeight }}</TheButton
       >
       <div v-if="isActiveSelectWeight">
