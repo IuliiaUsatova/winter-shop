@@ -1,10 +1,17 @@
 <script setup>
 import TheButton from "@/components/TheButton.vue";
 import TheSelect from "@/components/TheSelect.vue";
-import { ref } from "vue";
+import { ref, defineEmits } from "vue";
 
-const props = defineProps({ stepper: Object });
-const options = ["Вариант 1", "Вариант 2", "Вариант 3"];
+const emit = defineEmits(["select"]);
+const props = defineProps({
+  value: String,
+  number: Number,
+  name: String,
+  btnStep: String,
+  imgSrc: String,
+  options: Array,
+});
 const isActiveSelect = ref(false);
 const selected = ref("");
 
@@ -14,22 +21,23 @@ const toggleOptions = () => {
 const optionSelect = (option) => {
   selected.value = option;
   isActiveSelect.value = false;
+  emit("select", option);
 };
 </script>
 
 <template>
   <ul class="stepper-block">
-    <li class="stepper-block_number">{{ props.stepper.number }}</li>
+    <li class="stepper-block_number">{{ props.number }}</li>
     <li class="stepper-block_name">
-      <span>{{ props.stepper.name }}</span>
+      <span>{{ props.name }}</span>
       <TheButton @click="toggleOptions" class="btn-underline btn-step">{{
-        selected || props.stepper.btnStep
+        selected || props.btnStep
       }}</TheButton>
       <div v-if="isActiveSelect">
         <TheSelect :options="options" @select="optionSelect" />
       </div>
     </li>
-    <li><img :src="props.stepper.imgSrc" alt="" /></li>
+    <li><img :src="props.imgSrc" alt="" /></li>
   </ul>
 </template>
 <style scoped>

@@ -1,7 +1,7 @@
 <script setup>
 import TheButton from "@/components/TheButton.vue";
 import TheSelect from "@/components/TheSelect.vue";
-import { ref } from "vue";
+import { ref, defineEmits } from "vue";
 
 const emit = defineEmits(["height", "weight"]);
 
