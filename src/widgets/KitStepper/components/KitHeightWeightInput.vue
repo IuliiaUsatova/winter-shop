@@ -13,19 +13,22 @@ const isActiveSelectWeight = ref(false);
 const selectedHeight = ref("");
 const selectedWeight = ref("");
 
-const toggleOptions = (selectedWeight, selectedHeight) => {
-  isActiveSelectWeight.value = !isActiveSelectWeight.value;
+const toggleOptionsHeight = (selectedHeight) => {
   isActiveSelectHeight.value = !isActiveSelectHeight.value;
-  emit("weight", selectedWeight);
-  emit("height", selectedHeight);
+};
+const toggleOptionsWeight = (selectedWeight) => {
+  isActiveSelectWeight.value = !isActiveSelectWeight.value;
 };
 const optionSelectHeight = (option) => {
   selectedHeight.value = option;
   isActiveSelectHeight.value = false;
+  emit("select", selectedHeight);
 };
 const optionSelectWeight = (option) => {
   selectedWeight.value = option;
   isActiveSelectWeight.value = false;
+  emit("select", selectedWeight);
+  console.log(option);
 };
 </script>
 <template>
@@ -34,14 +37,14 @@ const optionSelectWeight = (option) => {
     <li class="stepper-block_name">
       <span>Укажите свой рост и вес</span>
 
-      <TheButton @click="toggleOptions" class="btn-underline btn-step"
+      <TheButton @click="toggleOptionsHeight" class="btn-underline btn-step"
         >Рост: {{ selectedHeight }}</TheButton
       >
       <div v-if="isActiveSelectHeight">
         <TheSelect :options="stepperHeight" @select="optionSelectHeight" />
       </div>
 
-      <TheButton @click="toggleOptions" class="btn-underline btn-step"
+      <TheButton @click="toggleOptionsWeight" class="btn-underline btn-step"
         >Вес: {{ selectedWeight }}</TheButton
       >
       <div v-if="isActiveSelectWeight">

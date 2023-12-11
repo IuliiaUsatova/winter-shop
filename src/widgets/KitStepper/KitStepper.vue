@@ -4,22 +4,24 @@ import KitHeightWeightInput from "./components/KitHeightWeightInput.vue";
 import KitSkillLevelInput from "./components/KitSkillLevelInput.vue";
 import { ref } from "vue";
 
-const selectedHeight = ref("");
-const selectedWeight = ref("");
+const selectedAll = ref({ height: "", weight: "" });
 
 const place = ref("");
 const level = ref("");
 const options = ["Вариант 1", "Вариант 2", "Вариант 3"];
-const optionSelect = (option) => {
+const optionsTwo = ["Вариант 4", "Вариант 5", "Вариант 6"];
+const optionSelectPlace = (option) => {
   place.value = option;
+  console.log(option);
+};
+const optionSelectLevel = (option) => {
   level.value = option;
+  console.log(option);
 };
 
-const toggleHeightSelect = (stepperHeight) => {
-  selectedHeight.value = stepperHeight;
-};
-const toggleWeightSelect = (stepperWeight) => {
-  selectedWeight.value = stepperWeight;
+const toggleSelectAll = (option) => {
+  selectedAll.value = option;
+  console.log(option);
 };
 </script>
 
@@ -27,12 +29,9 @@ const toggleWeightSelect = (stepperWeight) => {
   <div class="stepper">
     <div class="stepper-blocks">
       <KitPicker />
-      <KitHeightWeightInput
-        @height="toggleHeightSelect"
-        @weight="toggleWeightSelect"
-      />
+      <KitHeightWeightInput @select="toggleSelectAll" />
       <KitSkillLevelInput
-        @select="optionSelect"
+        @select="optionSelectPlace"
         :value="place"
         :options="options"
         :number="2"
@@ -41,8 +40,8 @@ const toggleWeightSelect = (stepperWeight) => {
         :imgSrc="require('@/widgets/KitStepper/image/mountain.svg')"
       />
       <KitSkillLevelInput
-        @select="optionSelect"
-        :options="options"
+        @select="optionSelectLevel"
+        :options="optionsTwo"
         :value="level"
         :number="3"
         name="Ваш уровень катания "
