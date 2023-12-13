@@ -1,7 +1,7 @@
 <script setup>
 import TheButton from "@/components/TheButton.vue";
 import TheSelect from "@/components/TheSelect.vue";
-import { ref, defineEmits } from "vue";
+import { ref, defineEmits, watch } from "vue";
 
 const emit = defineEmits(["height", "weight"]);
 
@@ -13,23 +13,27 @@ const isActiveSelectWeight = ref(false);
 const selectedHeight = ref("");
 const selectedWeight = ref("");
 
-const toggleOptionsHeight = (selectedHeight) => {
+const toggleOptionsHeight = () => {
   isActiveSelectHeight.value = !isActiveSelectHeight.value;
 };
-const toggleOptionsWeight = (selectedWeight) => {
+const toggleOptionsWeight = () => {
   isActiveSelectWeight.value = !isActiveSelectWeight.value;
 };
 const optionSelectHeight = (option) => {
   selectedHeight.value = option;
   isActiveSelectHeight.value = false;
-  emit("select", selectedHeight);
 };
 const optionSelectWeight = (option) => {
   selectedWeight.value = option;
   isActiveSelectWeight.value = false;
-  emit("select", selectedWeight);
-  console.log(option);
 };
+
+watch([selectedHeight, selectedWeight], () => {
+  emit("select", {
+    height: selectedHeight.value,
+    weight: selectedWeight.value,
+  });
+});
 </script>
 <template>
   <ul class="stepper-block">
