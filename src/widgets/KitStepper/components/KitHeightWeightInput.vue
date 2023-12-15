@@ -1,9 +1,9 @@
 <script setup>
 import TheButton from "@/components/TheButton.vue";
-import TheSelect from "@/components/TheSelect.vue";
+import TheSelect from "@/widgets/KitStepper/components/TheSelect.vue";
 import { ref, defineEmits, watch } from "vue";
 
-const emit = defineEmits(["height", "weight"]);
+const emit = defineEmits(["select"]);
 
 const stepperHeight = ["180 см", "190 см", "200 см"];
 const stepperWeight = ["300кг", "250кг", "275кг"];

@@ -16,12 +16,11 @@ const optionSelectPlace = (option) => {
 };
 const optionSelectLevel = (option) => {
   level.value = option;
-  console.log(option);
 };
 
 const toggleSelectAll = (option) => {
-  selectedAll.value = option;
   console.log(option);
+  selectedAll.value = option;
 };
 </script>
 
