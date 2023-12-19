@@ -46,25 +46,41 @@ watch([selectedHeight, selectedWeight], () => {
     <li class="stepper-block_number">1</li>
     <li class="stepper-block_name">
       <span>Укажите свой рост и вес</span>
+      <div class="btn-group">
+        <TheButton @click="toggleOptionsHeight" class="btn-underline btn-step"
+          >Рост: {{ selectedHeight }}</TheButton
+        >
+        <div v-if="isActiveSelectHeight">
+          <TheSelect
+            class="select"
+            :options="stepperHeight"
+            @select="optionSelectHeight"
+          />
+        </div>
 
-      <TheButton @click="toggleOptionsHeight" class="btn-underline btn-step"
-        >Рост: {{ selectedHeight }}</TheButton
-      >
-      <div v-if="isActiveSelectHeight">
-        <TheSelect :options="stepperHeight" @select="optionSelectHeight" />
-      </div>
-
-      <TheButton @click="toggleOptionsWeight" class="btn-underline btn-step"
-        >Вес: {{ selectedWeight }}</TheButton
-      >
-      <div v-if="isActiveSelectWeight">
-        <TheSelect :options="stepperWeight" @select="optionSelectWeight" />
+        <TheButton @click="toggleOptionsWeight" class="btn-underline btn-step"
+          >Вес: {{ selectedWeight }}</TheButton
+        >
+        <div v-if="isActiveSelectWeight">
+          <TheSelect
+            class="select"
+            :options="stepperWeight"
+            @select="optionSelectWeight"
+          />
+        </div>
       </div>
     </li>
     <li><img src="../image/dimensions.svg" alt="" /></li>
   </ul>
 </template>
 <style scoped>
+.btn-group {
+  display: flex;
+}
+.select {
+  top: 60px;
+  left: 70px;
+}
 .stepper-block {
   width: 100%;
   display: flex;
@@ -82,6 +98,9 @@ watch([selectedHeight, selectedWeight], () => {
   line-height: 25px;
   letter-spacing: -0.96px;
   margin-right: 18px;
+}
+.stepper-block_name {
+  margin-right: 10px;
 }
 .btn-step {
   margin-top: 5px;
