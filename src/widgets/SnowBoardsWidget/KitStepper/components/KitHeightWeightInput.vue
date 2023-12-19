@@ -15,9 +15,15 @@ const selectedWeight = ref("");
 
 const toggleOptionsHeight = () => {
   isActiveSelectHeight.value = !isActiveSelectHeight.value;
+  if (isActiveSelectHeight.value) {
+    isActiveSelectWeight.value = false;
+  }
 };
 const toggleOptionsWeight = () => {
   isActiveSelectWeight.value = !isActiveSelectWeight.value;
+  if (isActiveSelectWeight.value) {
+    isActiveSelectHeight.value = false;
+  }
 };
 const optionSelectHeight = (option) => {
   selectedHeight.value = option;
