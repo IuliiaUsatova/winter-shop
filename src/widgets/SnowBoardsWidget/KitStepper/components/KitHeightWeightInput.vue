@@ -1,6 +1,6 @@
 <script setup>
 import TheButton from "@/components/TheButton.vue";
-import TheSelect from "@/widgets/KitStepper/components/TheSelect.vue";
+import TheSelect from "./TheSelect.vue";
 import { ref, defineEmits, watch } from "vue";
 
 const emit = defineEmits(["select"]);

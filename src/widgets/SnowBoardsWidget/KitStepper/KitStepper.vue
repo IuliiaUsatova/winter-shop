@@ -36,7 +36,7 @@ const toggleSelectAll = (option) => {
         :number="2"
         name="Где планируете катать"
         btnStep="Укажите место "
-        :imgSrc="require('@/widgets/KitStepper/image/mountain.svg')"
+        :imgSrc="require('./image/mountain.svg')"
       />
       <KitSkillLevelInput
         @select="optionSelectLevel"
@@ -45,7 +45,7 @@ const toggleSelectAll = (option) => {
         :number="3"
         name="Ваш уровень катания "
         btnStep="Укажите ваш уровень "
-        :imgSrc="require('@/widgets/KitStepper/image/level.svg')"
+        :imgSrc="require('./image/level.svg')"
       />
     </div>
   </div>
