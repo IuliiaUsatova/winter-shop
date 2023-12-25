@@ -12,14 +12,12 @@ const options = ["Вариант 1", "Вариант 2", "Вариант 3"];
 const optionsTwo = ["Вариант 4", "Вариант 5", "Вариант 6"];
 const optionSelectPlace = (option) => {
   place.value = option;
-  console.log(option);
 };
 const optionSelectLevel = (option) => {
   level.value = option;
 };
 
 const toggleSelectAll = (option) => {
-  console.log(option);
   selectedAll.value = option;
 };
 </script>

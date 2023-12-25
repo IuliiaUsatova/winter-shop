@@ -3,6 +3,7 @@ import { ref } from "vue";
 import ProductCard from "@/components/ProductCard.vue";
 import TheRadio from "@/components/TheRadio.vue";
 import KitStepper from "./KitStepper/KitStepper.vue";
+import FilterAndSort from "./FilterAndSort/FilterAndSort.vue";
 
 const categoryData = ref([
   {
@@ -46,6 +47,7 @@ const products = ref([
     <div class="container">
       <h1 class="snow-board__title">Сноуборд<sup>358</sup></h1>
       <KitStepper />
+      <FilterAndSort />
       <div class="snow-board__section">
         <div class="snow-board__category">
           <TheRadio :items="categoryData" />
