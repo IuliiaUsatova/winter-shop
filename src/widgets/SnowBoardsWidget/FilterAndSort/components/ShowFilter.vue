@@ -1,11 +1,24 @@
 <script setup>
-import TheSelect from "./TheSelect.vue";
+import TheRadio from "./TheRadio.vue";
 import { ref, defineEmits } from "vue";
 
 const emit = defineEmits(["select"]);
 const isActiveSelect = ref(false);
 const selected = ref("");
-const options = ["Вариант 1", "Вариант 2", "Вариант 3"];
+const categoryData = ref([
+  {
+    title: "Категории товаров",
+    label: "Сноуборды",
+    value: 3,
+    peace: "10",
+  },
+  {
+    title: "Размеры",
+    label: "Крепления",
+    value: 6,
+    peace: "1",
+  },
+]);
 
 const toggleSelection = () => {
   isActiveSelect.value = !isActiveSelect.value;
@@ -17,14 +30,25 @@ const optionSelect = (option) => {
 };
 </script>
 <template>
-  <div @click="toggleSelection" class="select">
-    <div class="select-wrapper">Показать фильтры</div>
-  </div>
-  <div v-if="isActiveSelect">
-    <TheSelect :options="options" @select="optionSelect" class="select-show" />
+  <div class="wrapper">
+    <div @click="toggleSelection" class="select">
+      <div class="select-wrapper">
+        <img src="./image/vector.svg" alt="vector" />
+        <p>Показать фильтры</p>
+      </div>
+    </div>
+    <div v-if="isActiveSelect">
+      <div class="snow-board__category">
+        <TheRadio :items="categoryData" />
+      </div>
+    </div>
   </div>
 </template>
 <style scoped>
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
 .select {
   display: inline-block;
   position: relative;
@@ -45,17 +69,28 @@ const optionSelect = (option) => {
   padding: 15px 100px 15px 89px;
   background-color: #f9f9f9;
   border-radius: 4px;
+  margin-bottom: 50px;
 }
-.select-wrapper::before {
-  content: "";
+.select-wrapper img {
   position: absolute;
-  top: 22px;
   left: 20px;
   width: 10px;
   height: 10px;
-  border-color: transparent rgba(0, 0, 0, 1) rgba(0, 0, 0, 1) transparent;
-  border-style: solid;
-  border-width: 2px;
-  transform: translate(-30%, -80%) rotate(45deg);
+  transform: rotate(180deg);
+}
+.select-wrapper img:hover {
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
+}
+.snow-board__category {
+  position: absolute;
+}
+.snow-board__category h2 {
+  margin-bottom: 23px;
+  font-family: Grtsk Peta;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: -0.32px;
 }
 </style>

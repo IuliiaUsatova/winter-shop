@@ -31,7 +31,7 @@ const optionSelect = (option) => {
 }
 .select-new {
   position: absolute;
-  top: 47px;
+  top: 73px;
   right: 0;
   max-width: 315px;
   width: 100%;

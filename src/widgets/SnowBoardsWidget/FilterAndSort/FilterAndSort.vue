@@ -6,9 +6,6 @@ import { ref } from "vue";
 const showFilter = ref("");
 const newFilter = ref("");
 
-// const options = ["Вариант 1", "Вариант 2", "Вариант 3"];
-// const optionsTwo = ["Вариант 4", "Вариант 5", "Вариант 6"];
-
 const optionSelectShow = (option) => {
   showFilter.value = option;
 };
@@ -31,6 +28,7 @@ const optionSelectNew = (option) => {
   margin-top: 25px;
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
 }
 .title {
   color: #828b8d;
