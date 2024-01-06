@@ -4,6 +4,10 @@ import ProductCard from "@/components/ProductCard.vue";
 import KitStepper from "./KitStepper/KitStepper.vue";
 import FilterAndSort from "./FilterAndSort/FilterAndSort.vue";
 
+const selectedAll = ref({ height: "", weight: "" });
+const place = ref("");
+const level = ref("");
+
 const products = ref([
   {
     image: require("@/assets/image/arrival-1.png"),
@@ -26,12 +30,29 @@ const products = ref([
     sale: "-50%",
   },
 ]);
+const optionSelectPlace = (option) => {
+  place.value = option;
+};
+const optionSelectLevel = (option) => {
+  level.value = option;
+};
+
+const toggleSelectAll = (option) => {
+  selectedAll.value = option;
+};
 </script>
 <template>
   <div class="snow-board__wrapper">
     <div class="container">
       <h1 class="snow-board__title">Сноуборд<sup>358</sup></h1>
-      <KitStepper />
+      <KitStepper
+        :place="place"
+        :level="level"
+        :selectedAll="selectedAll"
+        @selectPlace="optionSelectPlace"
+        @selectLevel="optionSelectLevel"
+        @selectAll="toggleSelectAll"
+      />
       <FilterAndSort />
       <div class="snow-board__section">
         <div class="snow-board__card">

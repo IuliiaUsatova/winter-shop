@@ -2,6 +2,10 @@
 import TheSelect from "./TheSelect.vue";
 import { ref, defineEmits } from "vue";
 
+const props = defineProps({
+  newFilter: String,
+});
+
 const emit = defineEmits(["select"]);
 const isActiveSelect = ref(false);
 const selected = ref("");
@@ -21,7 +25,12 @@ const optionSelect = (option) => {
     <div class="select-wrapper">Новинки</div>
   </div>
   <div v-if="isActiveSelect">
-    <TheSelect :options="options" @select="optionSelect" class="select-new" />
+    <TheSelect
+      :options="options"
+      @select="optionSelect"
+      :value="props.newFilter"
+      class="select-new"
+    />
   </div>
 </template>
 <style scoped>

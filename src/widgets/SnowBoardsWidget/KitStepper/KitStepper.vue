@@ -2,23 +2,28 @@
 import KitPicker from "./components/KitPicker.vue";
 import KitHeightWeightInput from "./components/KitHeightWeightInput.vue";
 import KitSkillLevelInput from "./components/KitSkillLevelInput.vue";
-import { ref } from "vue";
+import { defineEmits } from "vue";
 
-const selectedAll = ref({ height: "", weight: "" });
+const emit = defineEmits(["selectAll", "selectPlace", "selectLevel"]);
 
-const place = ref("");
-const level = ref("");
+const props = defineProps({
+  selectedAll: Object,
+  place: String,
+  level: String,
+});
+
 const options = ["Вариант 1", "Вариант 2", "Вариант 3"];
 const optionsTwo = ["Вариант 4", "Вариант 5", "Вариант 6"];
+
 const optionSelectPlace = (option) => {
-  place.value = option;
+  emit("selectPlace", option);
 };
 const optionSelectLevel = (option) => {
-  level.value = option;
+  emit("selectLevel", option);
 };
 
 const toggleSelectAll = (option) => {
-  selectedAll.value = option;
+  emit("selectAll", option);
 };
 </script>
 
@@ -26,10 +31,13 @@ const toggleSelectAll = (option) => {
   <div class="stepper">
     <div class="stepper-blocks">
       <KitPicker />
-      <KitHeightWeightInput @select="toggleSelectAll" />
+      <KitHeightWeightInput
+        @select="toggleSelectAll"
+        :value="props.optionSelectAll"
+      />
       <KitSkillLevelInput
         @select="optionSelectPlace"
-        :value="place"
+        :value="props.place"
         :options="options"
         :number="2"
         name="Где планируете катать"
@@ -39,7 +47,7 @@ const toggleSelectAll = (option) => {
       <KitSkillLevelInput
         @select="optionSelectLevel"
         :options="optionsTwo"
-        :value="level"
+        :value="props.level"
         :number="3"
         name="Ваш уровень катания "
         btnStep="Укажите ваш уровень "

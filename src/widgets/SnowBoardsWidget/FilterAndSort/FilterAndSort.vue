@@ -18,7 +18,7 @@ const optionSelectNew = (option) => {
     <ShowFilter @select="optionSelectShow" :value="showFilter" />
     <div class="short-new">
       <p class="title">Сортировать по:</p>
-      <NewFilter @select="optionSelectNew" :value="newFilter" />
+      <NewFilter @select="optionSelectNew" :newFilter="newFilter" />
     </div>
   </div>
 </template>
