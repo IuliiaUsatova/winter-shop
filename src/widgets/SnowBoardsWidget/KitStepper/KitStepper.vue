@@ -33,7 +33,7 @@ const toggleSelectAll = (option) => {
       <KitPicker />
       <KitHeightWeightInput
         @select="toggleSelectAll"
-        :value="props.optionSelectAll"
+        :value="props.selectedAll"
       />
       <KitSkillLevelInput
         @select="optionSelectPlace"
