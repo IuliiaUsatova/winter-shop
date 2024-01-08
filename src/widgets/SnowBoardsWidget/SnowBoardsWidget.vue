@@ -7,6 +7,7 @@ import FilterAndSort from "./FilterAndSort/FilterAndSort.vue";
 const selectedAll = ref({ height: "", weight: "" });
 const place = ref("");
 const level = ref("");
+const selected = ref("");
 
 const products = ref([
   {
@@ -48,6 +49,7 @@ const toggleSelectAll = (option) => {
       <KitStepper
         :place="place"
         :level="level"
+        :selected="selected"
         :selectedAll="selectedAll"
         @selectPlace="optionSelectPlace"
         @selectLevel="optionSelectLevel"

@@ -1,8 +1,11 @@
 <script setup>
 import TheButton from "@/components/TheButton.vue";
 import TheSelect from "./TheSelect.vue";
-import { ref, defineEmits, watch } from "vue";
+import { ref, defineEmits } from "vue";
 
+const props = defineProps({
+  selectedAll: Object,
+});
 const emit = defineEmits(["select"]);
 
 const stepperHeight = ["180 см", "190 см", "200 см"];
@@ -10,8 +13,6 @@ const stepperWeight = ["300кг", "250кг", "275кг"];
 
 const isActiveSelectHeight = ref(false);
 const isActiveSelectWeight = ref(false);
-const selectedHeight = ref("");
-const selectedWeight = ref("");
 
 const toggleOptionsHeight = () => {
   isActiveSelectHeight.value = !isActiveSelectHeight.value;
@@ -26,20 +27,19 @@ const toggleOptionsWeight = () => {
   }
 };
 const optionSelectHeight = (option) => {
-  selectedHeight.value = option;
   isActiveSelectHeight.value = false;
+  emit("select", {
+    height: option,
+    weight: props.selectedAll.weight,
+  });
 };
 const optionSelectWeight = (option) => {
-  selectedWeight.value = option;
   isActiveSelectWeight.value = false;
-};
-
-watch([selectedHeight, selectedWeight], () => {
   emit("select", {
-    height: selectedHeight.value,
-    weight: selectedWeight.value,
+    height: props.selectedAll.height,
+    weight: option,
   });
-});
+};
 </script>
 <template>
   <ul class="stepper-block">
@@ -48,7 +48,7 @@ watch([selectedHeight, selectedWeight], () => {
       <span>Укажите свой рост и вес</span>
       <div class="btn-group">
         <TheButton @click="toggleOptionsHeight" class="btn-underline btn-step"
-          >Рост: {{ selectedHeight }}</TheButton
+          >Рост: {{ props.selectedAll.height }}</TheButton
         >
         <div v-if="isActiveSelectHeight">
           <TheSelect
@@ -59,7 +59,7 @@ watch([selectedHeight, selectedWeight], () => {
         </div>
 
         <TheButton @click="toggleOptionsWeight" class="btn-underline btn-step"
-          >Вес: {{ selectedWeight }}</TheButton
+          >Вес: {{ props.selectedAll.weight }}</TheButton
         >
         <div v-if="isActiveSelectWeight">
           <TheSelect

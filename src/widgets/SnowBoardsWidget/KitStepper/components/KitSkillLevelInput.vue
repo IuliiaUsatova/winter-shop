@@ -1,25 +1,26 @@
 <script setup>
+import { ref, defineEmits } from "vue";
 import TheButton from "@/components/TheButton.vue";
 import TheSelect from "./TheSelect.vue";
-import { ref, defineEmits } from "vue";
 
-const emit = defineEmits(["select"]);
 const props = defineProps({
   value: String,
+  selected: String,
   number: Number,
   name: String,
   btnStep: String,
   imgSrc: String,
   options: Array,
 });
+
 const isActiveSelect = ref(false);
-const selected = ref("");
+
+const emit = defineEmits(["select"]);
 
 const toggleOptions = () => {
   isActiveSelect.value = !isActiveSelect.value;
 };
 const optionSelect = (option) => {
-  selected.value = option;
   isActiveSelect.value = false;
   emit("select", option);
 };
@@ -31,7 +32,7 @@ const optionSelect = (option) => {
     <li class="stepper-block_name">
       <span>{{ props.name }}</span>
       <TheButton @click="toggleOptions" class="btn-underline btn-step">{{
-        selected || props.btnStep
+        props.selected || props.btnStep
       }}</TheButton>
       <div v-if="isActiveSelect">
         <TheSelect :options="options" @select="optionSelect" />

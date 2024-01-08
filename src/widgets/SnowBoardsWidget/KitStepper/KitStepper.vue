@@ -10,6 +10,7 @@ const props = defineProps({
   selectedAll: Object,
   place: String,
   level: String,
+  selected: String,
 });
 
 const options = ["Вариант 1", "Вариант 2", "Вариант 3"];
@@ -33,12 +34,12 @@ const toggleSelectAll = (option) => {
       <KitPicker />
       <KitHeightWeightInput
         @select="toggleSelectAll"
-        :value="props.selectedAll"
+        :selectedAll="props.selectedAll"
       />
       <KitSkillLevelInput
         @select="optionSelectPlace"
-        :value="props.place"
         :options="options"
+        :selected="props.place"
         :number="2"
         name="Где планируете катать"
         btnStep="Укажите место "
@@ -47,7 +48,7 @@ const toggleSelectAll = (option) => {
       <KitSkillLevelInput
         @select="optionSelectLevel"
         :options="optionsTwo"
-        :value="props.level"
+        :selected="props.level"
         :number="3"
         name="Ваш уровень катания "
         btnStep="Укажите ваш уровень "
