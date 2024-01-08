@@ -4,7 +4,6 @@ import TheButton from "@/components/TheButton.vue";
 import TheSelect from "./TheSelect.vue";
 
 const props = defineProps({
-  value: String,
   selected: String,
   number: Number,
   name: String,

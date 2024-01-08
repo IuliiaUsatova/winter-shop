@@ -10,7 +10,6 @@ const props = defineProps({
   selectedAll: Object,
   place: String,
   level: String,
-  selected: String,
 });
 
 const options = ["Вариант 1", "Вариант 2", "Вариант 3"];
