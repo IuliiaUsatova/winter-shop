@@ -1,12 +1,14 @@
 <script setup>
-import { ref } from "vue";
+import { reactive, ref } from "vue";
 import ProductCard from "@/components/ProductCard.vue";
 import KitStepper from "./KitStepper/KitStepper.vue";
 import FilterAndSort from "./FilterAndSort/FilterAndSort.vue";
 
-const selectedAll = ref({ height: "", weight: "" });
-const place = ref("");
-const level = ref("");
+const stateAll = reactive({
+  place: "",
+  level: "",
+  selectedAll: { height: "", weight: "" },
+});
 
 const products = ref([
   {
@@ -31,14 +33,14 @@ const products = ref([
   },
 ]);
 const optionSelectPlace = (option) => {
-  place.value = option;
+  stateAll.place = option;
 };
 const optionSelectLevel = (option) => {
-  level.value = option;
+  stateAll.level = option;
 };
 
 const toggleSelectAll = (option) => {
-  selectedAll.value = option;
+  stateAll.selectedAll = option;
 };
 </script>
 <template>
@@ -46,9 +48,9 @@ const toggleSelectAll = (option) => {
     <div class="container">
       <h1 class="snow-board__title">Сноуборд<sup>358</sup></h1>
       <KitStepper
-        :place="place"
-        :level="level"
-        :selectedAll="selectedAll"
+        :place="stateAll.place"
+        :level="stateAll.level"
+        :selectedAll="stateAll.selectedAll"
         @selectPlace="optionSelectPlace"
         @selectLevel="optionSelectLevel"
         @selectAll="toggleSelectAll"
