@@ -48,9 +48,7 @@ const toggleSelectAll = (option) => {
     <div class="container">
       <h1 class="snow-board__title">Сноуборд<sup>358</sup></h1>
       <KitStepper
-        :place="stateAll.place"
-        :level="stateAll.level"
-        :selectedAll="stateAll.selectedAll"
+        :stateAll="stateAll"
         @selectPlace="optionSelectPlace"
         @selectLevel="optionSelectLevel"
         @selectAll="toggleSelectAll"
