@@ -7,9 +7,7 @@ import { defineEmits } from "vue";
 const emit = defineEmits(["selectAll", "selectPlace", "selectLevel"]);
 
 const props = defineProps({
-  selectedAll: Object,
-  place: String,
-  level: String,
+  stateAll: Object,
 });
 
 const options = ["Вариант 1", "Вариант 2", "Вариант 3"];
@@ -33,12 +31,12 @@ const toggleSelectAll = (option) => {
       <KitPicker />
       <KitHeightWeightInput
         @select="toggleSelectAll"
-        :selectedAll="props.selectedAll"
+        :selectedAll="props.stateAll.selectedAll"
       />
       <KitSkillLevelInput
         @select="optionSelectPlace"
         :options="options"
-        :selected="props.place"
+        :selected="props.stateAll.place"
         :number="2"
         name="Где планируете катать"
         btnStep="Укажите место "
@@ -47,7 +45,7 @@ const toggleSelectAll = (option) => {
       <KitSkillLevelInput
         @select="optionSelectLevel"
         :options="optionsTwo"
-        :selected="props.level"
+        :selected="props.stateAll.level"
         :number="3"
         name="Ваш уровень катания "
         btnStep="Укажите ваш уровень "
