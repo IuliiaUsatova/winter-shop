@@ -32,27 +32,22 @@ const products = ref([
     sale: "-50%",
   },
 ]);
-const optionSelectPlace = (option) => {
-  stateAll.place = option;
-};
-const optionSelectLevel = (option) => {
-  stateAll.level = option;
-};
+// const optionSelectPlace = (option) => {
+//   stateAll.place = option;
+// };
+// const optionSelectLevel = (option) => {
+//   stateAll.level = option;
+// };
 
-const toggleSelectAll = (option) => {
-  stateAll.selectedAll = option;
-};
+// const toggleSelectAll = (option) => {
+//   stateAll.selectedAll = option;
+// };
 </script>
 <template>
   <div class="snow-board__wrapper">
     <div class="container">
       <h1 class="snow-board__title">Сноуборд<sup>358</sup></h1>
-      <KitStepper
-        :stateAll="stateAll"
-        @selectPlace="optionSelectPlace"
-        @selectLevel="optionSelectLevel"
-        @selectAll="toggleSelectAll"
-      />
+      <KitStepper v-model="stateAll" />
       <FilterAndSort />
       <div class="snow-board__section">
         <div class="snow-board__card">

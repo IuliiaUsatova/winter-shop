@@ -4,24 +4,37 @@ import KitHeightWeightInput from "./components/KitHeightWeightInput.vue";
 import KitSkillLevelInput from "./components/KitSkillLevelInput.vue";
 import { defineEmits } from "vue";
 
-const emit = defineEmits(["selectAll", "selectPlace", "selectLevel"]);
+const emit = defineEmits(["update:model-value"]);
 
 const props = defineProps({
-  stateAll: Object,
+  modelValue: Object,
 });
 
 const options = ["Вариант 1", "Вариант 2", "Вариант 3"];
 const optionsTwo = ["Вариант 4", "Вариант 5", "Вариант 6"];
 
 const optionSelectPlace = (option) => {
-  emit("selectPlace", option);
+  emit("update:model-value", {
+    place: option,
+    level: props.modelValue.level,
+    selectedAll: props.modelValue.selectedAll,
+  });
 };
 const optionSelectLevel = (option) => {
-  emit("selectLevel", option);
+  emit("update:model-value", {
+    place: props.modelValue.place,
+    level: option,
+    selectedAll: props.modelValue.selectedAll,
+  });
 };
 
 const toggleSelectAll = (option) => {
-  emit("selectAll", option);
+  console.log(option);
+  emit("update:model-value", {
+    place: props.modelValue.place,
+    level: props.modelValue.level,
+    selectedAll: option,
+  });
 };
 </script>
 
@@ -31,12 +44,12 @@ const toggleSelectAll = (option) => {
       <KitPicker />
       <KitHeightWeightInput
         @select="toggleSelectAll"
-        :selectedAll="props.stateAll.selectedAll"
+        :selectedAll="props.modelValue.selectedAll"
       />
       <KitSkillLevelInput
         @select="optionSelectPlace"
         :options="options"
-        :selected="props.stateAll.place"
+        :selected="props.modelValue.place"
         :number="2"
         name="Где планируете катать"
         btnStep="Укажите место "
@@ -45,7 +58,7 @@ const toggleSelectAll = (option) => {
       <KitSkillLevelInput
         @select="optionSelectLevel"
         :options="optionsTwo"
-        :selected="props.stateAll.level"
+        :selected="props.modelValue.level"
         :number="3"
         name="Ваш уровень катания "
         btnStep="Укажите ваш уровень "
