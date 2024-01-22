@@ -4,10 +4,15 @@ import ProductCard from "@/components/ProductCard.vue";
 import KitStepper from "./KitStepper/KitStepper.vue";
 import FilterAndSort from "./FilterAndSort/FilterAndSort.vue";
 
-const stateAll = reactive({
+const stateAll = ref({
   place: "",
   level: "",
   selectedAll: { height: "", weight: "" },
+});
+
+const filterAll = ref({
+  showFilter: "",
+  newFilter: "",
 });
 
 const products = ref([
@@ -48,7 +53,7 @@ const products = ref([
     <div class="container">
       <h1 class="snow-board__title">Сноуборд<sup>358</sup></h1>
       <KitStepper v-model="stateAll" />
-      <FilterAndSort />
+      <FilterAndSort v-model="filterAll" />
       <div class="snow-board__section">
         <div class="snow-board__card">
           <ProductCard

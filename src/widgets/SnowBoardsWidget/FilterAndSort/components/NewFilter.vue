@@ -8,6 +8,7 @@ const props = defineProps({
 
 const emit = defineEmits(["select"]);
 const isActiveSelect = ref(false);
+
 const selected = ref("");
 const options = ["Вариант 3", "Вариант 4", "Вариант 5"];
 
@@ -28,7 +29,7 @@ const optionSelect = (option) => {
     <TheSelect
       :options="options"
       @select="optionSelect"
-      :value="props.newFilter"
+      :newFilter="props.newFilter"
       class="select-new"
     />
   </div>

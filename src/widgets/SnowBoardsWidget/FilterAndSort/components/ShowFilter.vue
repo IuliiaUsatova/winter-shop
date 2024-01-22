@@ -4,7 +4,6 @@ import { ref, defineEmits } from "vue";
 
 const emit = defineEmits(["select"]);
 const isActiveSelect = ref(false);
-const selected = ref("");
 const categoryData = ref([
   {
     title: "Категории товаров",
@@ -24,7 +23,6 @@ const toggleSelection = () => {
   isActiveSelect.value = !isActiveSelect.value;
 };
 const optionSelect = (option) => {
-  selected.value = option;
   isActiveSelect.value = false;
   emit("select", option);
 };
@@ -39,7 +37,7 @@ const optionSelect = (option) => {
     </div>
     <div v-if="isActiveSelect">
       <div class="snow-board__category">
-        <TheRadio :items="categoryData" />
+        <TheRadio :items="categoryData" @select="optionSelect" />
       </div>
     </div>
   </div>
