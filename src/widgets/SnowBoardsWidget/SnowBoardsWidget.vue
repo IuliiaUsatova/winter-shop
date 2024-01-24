@@ -12,7 +12,6 @@ const stateAll = ref({
 const isActiveSelect = ref(false);
 const toggleFilter = () => {
   isActiveSelect.value = !isActiveSelect.value;
-  console.log(isActiveSelect.value);
 };
 // const filterAll = ref({
 //   showFilter: "",
@@ -47,7 +46,7 @@ const products = ref([
     <div class="container">
       <h1 class="snow-board__title">Сноуборд<sup>358</sup></h1>
       <KitStepper v-model="stateAll" />
-      <FilterAndSort :toggleFilter="toggleFilter" />
+      <FilterAndSort @toggleFilter="toggleFilter" />
       <div class="snow-board__section">
         <div class="snow-board__card">
           <ProductCard

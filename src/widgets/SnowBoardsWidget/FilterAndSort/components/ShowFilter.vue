@@ -2,9 +2,6 @@
 import TheRadio from "./TheRadio.vue";
 import { defineEmits } from "vue";
 
-const props = defineProps({
-  toggleFilter: Function,
-});
 const emit = defineEmits(["filter"]);
 
 // const categoryData = ref([
@@ -23,8 +20,7 @@ const emit = defineEmits(["filter"]);
 // ]);
 
 const toggleSelection = () => {
-  props.toggleFilter();
-  emit("filter", props.showFilter);
+  emit("filter");
 };
 </script>
 <template>

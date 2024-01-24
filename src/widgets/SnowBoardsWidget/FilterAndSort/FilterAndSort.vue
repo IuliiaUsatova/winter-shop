@@ -6,15 +6,10 @@ import { defineEmits } from "vue";
 const emit = defineEmits(["update:model-value"]);
 const props = defineProps({
   // modelValue: Object,
-  toggleFilter: Function,
 });
 
-const optionShowFilter = (option) => {
-  console.log(option);
-  emit("update:model-value", {
-    showFilter: option,
-    // newFilter: props.modelValue.newFilter,
-  });
+const optionShowFilter = () => {
+  emit("toggleFilter");
 };
 // const optionNewFilter = (option) => {
 //   emit("update:model-value", {
@@ -25,7 +20,7 @@ const optionShowFilter = (option) => {
 </script>
 <template>
   <div class="wrapper">
-    <ShowFilter :toggleFilter="props.toggleFilter" @filter="optionShowFilter" />
+    <ShowFilter @filter="optionShowFilter" />
     <!-- <div class="short-new">
       <p class="title">Сортировать по:</p>
       <NewFilter
