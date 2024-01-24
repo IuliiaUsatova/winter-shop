@@ -1,5 +1,5 @@
 <script setup>
-import { reactive, ref } from "vue";
+import { ref } from "vue";
 import ProductCard from "@/components/ProductCard.vue";
 import KitStepper from "./KitStepper/KitStepper.vue";
 import FilterAndSort from "./FilterAndSort/FilterAndSort.vue";
@@ -9,11 +9,15 @@ const stateAll = ref({
   level: "",
   selectedAll: { height: "", weight: "" },
 });
-
-const filterAll = ref({
-  showFilter: "",
-  newFilter: "",
-});
+const isActiveSelect = ref(false);
+const toggleFilter = () => {
+  isActiveSelect.value = !isActiveSelect.value;
+  console.log(isActiveSelect.value);
+};
+// const filterAll = ref({
+//   showFilter: "",
+//   newFilter: "",
+// });
 
 const products = ref([
   {
@@ -37,23 +41,13 @@ const products = ref([
     sale: "-50%",
   },
 ]);
-// const optionSelectPlace = (option) => {
-//   stateAll.place = option;
-// };
-// const optionSelectLevel = (option) => {
-//   stateAll.level = option;
-// };
-
-// const toggleSelectAll = (option) => {
-//   stateAll.selectedAll = option;
-// };
 </script>
 <template>
   <div class="snow-board__wrapper">
     <div class="container">
       <h1 class="snow-board__title">Сноуборд<sup>358</sup></h1>
       <KitStepper v-model="stateAll" />
-      <FilterAndSort v-model="filterAll" />
+      <FilterAndSort :toggleFilter="toggleFilter" />
       <div class="snow-board__section">
         <div class="snow-board__card">
           <ProductCard

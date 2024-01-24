@@ -1,30 +1,30 @@
 <script setup>
 import TheRadio from "./TheRadio.vue";
-import { ref, defineEmits } from "vue";
+import { defineEmits } from "vue";
 
-const emit = defineEmits(["select"]);
-const isActiveSelect = ref(false);
-const categoryData = ref([
-  {
-    title: "Категории товаров",
-    label: "Сноуборды",
-    value: 3,
-    peace: "10",
-  },
-  {
-    title: "Размеры",
-    label: "Крепления",
-    value: 6,
-    peace: "1",
-  },
-]);
+const props = defineProps({
+  toggleFilter: Function,
+});
+const emit = defineEmits(["filter"]);
+
+// const categoryData = ref([
+//   {
+//     title: "Категории товаров",
+//     label: "Сноуборды",
+//     value: 3,
+//     peace: "10",
+//   },
+//   {
+//     title: "Размеры",
+//     label: "Крепления",
+//     value: 6,
+//     peace: "1",
+//   },
+// ]);
 
 const toggleSelection = () => {
-  isActiveSelect.value = !isActiveSelect.value;
-};
-const optionSelect = (option) => {
-  isActiveSelect.value = false;
-  emit("select", option);
+  props.toggleFilter();
+  emit("filter", props.showFilter);
 };
 </script>
 <template>
@@ -35,11 +35,15 @@ const optionSelect = (option) => {
         <p>Показать фильтры</p>
       </div>
     </div>
-    <div v-if="isActiveSelect">
-      <div class="snow-board__category">
-        <TheRadio :items="categoryData" @select="optionSelect" />
-      </div>
-    </div>
+    <!-- <div v-if="isActiveSelect"> -->
+    <!-- <div class="snow-board__category">
+        <TheRadio
+          :items="categoryData"
+          @select="optionSelect"
+          :showFilter="showFilter"
+        />
+      </div> -->
+    <!-- </div> -->
   </div>
 </template>
 <style scoped>

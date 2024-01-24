@@ -1,39 +1,38 @@
 <script setup>
-import NewFilter from "./components/NewFilter.vue";
+// import NewFilter from "./components/NewFilter.vue";
 import ShowFilter from "./components/ShowFilter.vue";
 import { defineEmits } from "vue";
 
 const emit = defineEmits(["update:model-value"]);
 const props = defineProps({
-  filterValue: Object,
+  // modelValue: Object,
+  toggleFilter: Function,
 });
 
 const optionShowFilter = (option) => {
+  console.log(option);
   emit("update:model-value", {
     showFilter: option,
-    newFilter: props.filterValue.newFilter,
+    // newFilter: props.modelValue.newFilter,
   });
 };
-const optionNewFilter = (option) => {
-  emit("update:model-value", {
-    showFilter: props.filterValue.showFilterFilter,
-    newFilter: option,
-  });
-};
+// const optionNewFilter = (option) => {
+//   emit("update:model-value", {
+//     showFilter: props.modelValue.showFilterFilter,
+//     newFilter: option,
+//   });
+// };
 </script>
 <template>
   <div class="wrapper">
-    <ShowFilter
-      @select="optionShowFilter"
-      :showFilter="props.filterValue.showFilter"
-    />
-    <div class="short-new">
+    <ShowFilter :toggleFilter="props.toggleFilter" @filter="optionShowFilter" />
+    <!-- <div class="short-new">
       <p class="title">Сортировать по:</p>
       <NewFilter
         @select="optionNewFilter"
-        :newFilter="props.filterValue.newFilter"
+        :newFilter="props.modelValue.newFilter"
       />
-    </div>
+    </div> -->
   </div>
 </template>
 <style scoped>
