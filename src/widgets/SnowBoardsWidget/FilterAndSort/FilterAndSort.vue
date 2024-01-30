@@ -3,13 +3,17 @@
 import ShowFilter from "./components/ShowFilter.vue";
 import { defineEmits } from "vue";
 
-const emit = defineEmits(["update:model-value"]);
+const emit = defineEmits(["toggleFilter", "toggleImage"]);
 const props = defineProps({
+  isImageRotated: Boolean,
   // modelValue: Object,
 });
 
 const optionShowFilter = () => {
   emit("toggleFilter");
+};
+const toggleImage = () => {
+  emit("toggleImage");
 };
 // const optionNewFilter = (option) => {
 //   emit("update:model-value", {
@@ -20,7 +24,11 @@ const optionShowFilter = () => {
 </script>
 <template>
   <div class="wrapper">
-    <ShowFilter @filter="optionShowFilter" />
+    <ShowFilter
+      @filter="optionShowFilter"
+      @toggle="toggleImage"
+      :isImageRotated="isImageRotated"
+    />
     <!-- <div class="short-new">
       <p class="title">Сортировать по:</p>
       <NewFilter

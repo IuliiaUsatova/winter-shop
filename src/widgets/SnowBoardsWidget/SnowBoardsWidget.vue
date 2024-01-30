@@ -17,7 +17,10 @@ const toggleFilter = () => {
 //   showFilter: "",
 //   newFilter: "",
 // });
-
+const isImageRotated = ref(false);
+const toggleImageRotated = () => {
+  isImageRotated.value = !isImageRotated.value;
+};
 const products = ref([
   {
     image: require("@/assets/image/arrival-1.png"),
@@ -46,7 +49,11 @@ const products = ref([
     <div class="container">
       <h1 class="snow-board__title">Сноуборд<sup>358</sup></h1>
       <KitStepper v-model="stateAll" />
-      <FilterAndSort @toggleFilter="toggleFilter" />
+      <FilterAndSort
+        @toggleFilter="toggleFilter"
+        @toggleImage="toggleImageRotated"
+        :isImageRotated="isImageRotated"
+      />
       <div class="snow-board__section">
         <div class="snow-board__card">
           <ProductCard
