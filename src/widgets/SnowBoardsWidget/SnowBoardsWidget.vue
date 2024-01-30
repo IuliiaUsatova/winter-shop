@@ -49,7 +49,7 @@ const products = ref([
       <KitStepper v-model="stateAll" />
       <FilterAndSort
         @toggleFilter="toggleFilter"
-        :isImageRotated="isImageRotated"
+        :isActiveSelect="isActiveSelect"
       />
       <div class="snow-board__section">
         <div class="snow-board__card">

@@ -5,7 +5,7 @@ import { defineEmits } from "vue";
 
 const emit = defineEmits(["toggleFilter", "toggleImage"]);
 const props = defineProps({
-  isImageRotated: Boolean,
+  isActiveSelect: Boolean,
   // modelValue: Object,
 });
 
@@ -24,7 +24,7 @@ const optionShowFilter = () => {
   <div class="wrapper">
     <ShowFilter
       @filter="optionShowFilter"
-      :isImageRotated="props.isImageRotated"
+      :isActiveSelect="props.isActiveSelect"
     />
     <!-- <div class="short-new">
       <p class="title">Сортировать по:</p>

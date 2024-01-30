@@ -4,7 +4,7 @@ import { defineEmits } from "vue";
 
 const emit = defineEmits(["filter"]);
 const props = defineProps({
-  isImageRotated: Boolean,
+  isActiveSelect: Boolean,
 });
 // const categoryData = ref([
 //   {
@@ -34,7 +34,7 @@ const toggleSelection = () => {
     <div @click="toggleSelection" class="select">
       <div class="select-wrapper">
         <img
-          :class="{ rotated: props.isImageRotated }"
+          :class="{ rotated: props.isActiveSelect }"
           src="./image/vector.svg"
           alt="vector"
         />
