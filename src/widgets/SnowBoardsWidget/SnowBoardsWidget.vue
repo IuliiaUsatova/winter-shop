@@ -10,11 +10,9 @@ const stateAll = ref({
   selectedAll: { height: "", weight: "" },
 });
 const isActiveSelect = ref(false);
-const isImageRotated = ref(false);
 
 const toggleFilter = () => {
   isActiveSelect.value = !isActiveSelect.value;
-  isImageRotated.value = !isImageRotated.value;
 };
 // const filterAll = ref({
 //   showFilter: "",
