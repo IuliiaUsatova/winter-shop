@@ -12,9 +12,7 @@ const props = defineProps({
 const optionShowFilter = () => {
   emit("toggleFilter");
 };
-const toggleImage = () => {
-  emit("toggleImage");
-};
+
 // const optionNewFilter = (option) => {
 //   emit("update:model-value", {
 //     showFilter: props.modelValue.showFilterFilter,
@@ -24,11 +22,7 @@ const toggleImage = () => {
 </script>
 <template>
   <div class="wrapper">
-    <ShowFilter
-      @filter="optionShowFilter"
-      @toggle="toggleImage"
-      :isImageRotated="isImageRotated"
-    />
+    <ShowFilter @filter="optionShowFilter" :isImageRotated="isImageRotated" />
     <!-- <div class="short-new">
       <p class="title">Сортировать по:</p>
       <NewFilter

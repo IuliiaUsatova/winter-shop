@@ -10,17 +10,17 @@ const stateAll = ref({
   selectedAll: { height: "", weight: "" },
 });
 const isActiveSelect = ref(false);
+const isImageRotated = ref(false);
+
 const toggleFilter = () => {
   isActiveSelect.value = !isActiveSelect.value;
+  isImageRotated.value = !isImageRotated.value;
 };
 // const filterAll = ref({
 //   showFilter: "",
 //   newFilter: "",
 // });
-const isImageRotated = ref(false);
-const toggleImageRotated = () => {
-  isImageRotated.value = !isImageRotated.value;
-};
+
 const products = ref([
   {
     image: require("@/assets/image/arrival-1.png"),
@@ -51,7 +51,6 @@ const products = ref([
       <KitStepper v-model="stateAll" />
       <FilterAndSort
         @toggleFilter="toggleFilter"
-        @toggleImage="toggleImageRotated"
         :isImageRotated="isImageRotated"
       />
       <div class="snow-board__section">

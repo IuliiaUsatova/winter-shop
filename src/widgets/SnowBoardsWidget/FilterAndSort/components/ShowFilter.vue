@@ -1,8 +1,8 @@
 <script setup>
 import TheRadio from "./TheRadio.vue";
-import { ref, defineEmits } from "vue";
+import { defineEmits } from "vue";
 
-const emit = defineEmits(["filter", "toggle"]);
+const emit = defineEmits(["filter"]);
 const props = defineProps({
   isImageRotated: Boolean,
 });
@@ -21,9 +21,10 @@ const props = defineProps({
 //   },
 // ]);
 
-const toggleImageRotated = () => {
-  emit("toggle");
-};
+// const toggleImageRotated = () => {
+//   emit("toggle");
+// };
+
 const toggleSelection = () => {
   emit("filter");
 };
@@ -31,7 +32,7 @@ const toggleSelection = () => {
 <template>
   <div class="wrapper">
     <div @click="toggleSelection" class="select">
-      <div @click="toggleImageRotated" class="select-wrapper">
+      <div class="select-wrapper">
         <img
           :class="{ rotated: props.isImageRotated }"
           src="./image/vector.svg"
