@@ -22,7 +22,10 @@ const optionShowFilter = () => {
 </script>
 <template>
   <div class="wrapper">
-    <ShowFilter @filter="optionShowFilter" :isImageRotated="isImageRotated" />
+    <ShowFilter
+      @filter="optionShowFilter"
+      :isImageRotated="props.isImageRotated"
+    />
     <!-- <div class="short-new">
       <p class="title">Сортировать по:</p>
       <NewFilter
