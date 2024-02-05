@@ -1,24 +1,21 @@
 <script setup>
-// import NewFilter from "./components/NewFilter.vue";
+import NewFilter from "./components/NewFilter.vue";
 import ShowFilter from "./components/ShowFilter.vue";
 import { defineEmits } from "vue";
 
 const emit = defineEmits(["toggleFilter", "toggleImage"]);
 const props = defineProps({
   isActiveSelect: Boolean,
-  // modelValue: Object,
+  modelValue: String,
 });
 
 const optionShowFilter = () => {
   emit("toggleFilter");
 };
 
-// const optionNewFilter = (option) => {
-//   emit("update:model-value", {
-//     showFilter: props.modelValue.showFilterFilter,
-//     newFilter: option,
-//   });
-// };
+const optionNewFilter = (option) => {
+  emit("update:model-value", option);
+};
 </script>
 <template>
   <div class="wrapper">
@@ -26,13 +23,10 @@ const optionShowFilter = () => {
       @filter="optionShowFilter"
       :isActiveSelect="props.isActiveSelect"
     />
-    <!-- <div class="short-new">
+    <div class="short-new">
       <p class="title">Сортировать по:</p>
-      <NewFilter
-        @select="optionNewFilter"
-        :newFilter="props.modelValue.newFilter"
-      />
-    </div> -->
+      <NewFilter @select="optionNewFilter" :selected="props.modelValue" />
+    </div>
   </div>
 </template>
 <style scoped>

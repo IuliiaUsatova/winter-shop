@@ -3,6 +3,7 @@ import { ref } from "vue";
 import ProductCard from "@/components/ProductCard.vue";
 import KitStepper from "./KitStepper/KitStepper.vue";
 import FilterAndSort from "./FilterAndSort/FilterAndSort.vue";
+import CategoryList from "@/components/CategoryList.vue";
 
 const stateAll = ref({
   place: "",
@@ -10,6 +11,7 @@ const stateAll = ref({
   selectedAll: { height: "", weight: "" },
 });
 const isActiveSelect = ref(false);
+const selected = ref("");
 
 const toggleFilter = () => {
   isActiveSelect.value = !isActiveSelect.value;
@@ -48,9 +50,11 @@ const products = ref([
       <h1 class="snow-board__title">Сноуборд<sup>358</sup></h1>
       <KitStepper v-model="stateAll" />
       <FilterAndSort
+        v-model="selected"
         @toggleFilter="toggleFilter"
         :isActiveSelect="isActiveSelect"
       />
+      <CategoryList v-if="isActiveSelect === true" />
       <div class="snow-board__section">
         <div class="snow-board__card">
           <ProductCard

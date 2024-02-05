@@ -3,33 +3,34 @@ import TheSelect from "./TheSelect.vue";
 import { ref, defineEmits } from "vue";
 
 const props = defineProps({
-  newFilter: String,
+  selected: String,
+  default: {
+    newFilter: "",
+  },
 });
 
 const emit = defineEmits(["select"]);
 const isActiveSelect = ref(false);
 
-const selected = ref("");
 const options = ["Вариант 3", "Вариант 4", "Вариант 5"];
 
 const toggleSelection = () => {
   isActiveSelect.value = !isActiveSelect.value;
 };
 const optionSelect = (option) => {
-  selected.value = option;
   isActiveSelect.value = false;
   emit("select", option);
 };
 </script>
 <template>
   <div class="select" @click="toggleSelection">
-    <div class="select-wrapper">Новинки</div>
+    <div class="select-wrapper">{{ props.selected || "Новинки" }}</div>
   </div>
   <div v-if="isActiveSelect">
     <TheSelect
       :options="options"
       @select="optionSelect"
-      :newFilter="props.newFilter"
+      :selected="props.selected"
       class="select-new"
     />
   </div>
