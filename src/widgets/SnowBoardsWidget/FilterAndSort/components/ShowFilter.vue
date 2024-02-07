@@ -1,29 +1,11 @@
 <script setup>
-import TheRadio from "./TheRadio.vue";
+// import TheRadio from "./TheRadio.vue";
 import { defineEmits } from "vue";
 
 const emit = defineEmits(["filter"]);
 const props = defineProps({
   isActiveSelect: Boolean,
 });
-// const categoryData = ref([
-//   {
-//     title: "Категории товаров",
-//     label: "Сноуборды",
-//     value: 3,
-//     peace: "10",
-//   },
-//   {
-//     title: "Размеры",
-//     label: "Крепления",
-//     value: 6,
-//     peace: "1",
-//   },
-// ]);
-
-// const toggleImageRotated = () => {
-//   emit("toggle");
-// };
 
 const toggleSelection = () => {
   emit("filter");
@@ -87,16 +69,5 @@ const toggleSelection = () => {
 }
 .rotated {
   transform: rotate(180deg);
-}
-.snow-board__category {
-  position: absolute;
-}
-.snow-board__category h2 {
-  margin-bottom: 23px;
-  font-family: Grtsk Peta;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.6;
-  letter-spacing: -0.32px;
 }
 </style>

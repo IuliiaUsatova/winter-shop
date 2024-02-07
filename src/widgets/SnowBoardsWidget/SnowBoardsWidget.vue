@@ -3,7 +3,7 @@ import { ref } from "vue";
 import ProductCard from "@/components/ProductCard.vue";
 import KitStepper from "./KitStepper/KitStepper.vue";
 import FilterAndSort from "./FilterAndSort/FilterAndSort.vue";
-import CategoryList from "@/components/CategoryList.vue";
+import CategoryList from "./CategoryList/CategoryList.vue";
 
 const stateAll = ref({
   place: "",
@@ -12,6 +12,7 @@ const stateAll = ref({
 });
 const isActiveSelect = ref(false);
 const selected = ref("");
+const radio = ref("");
 
 const toggleFilter = () => {
   isActiveSelect.value = !isActiveSelect.value;
@@ -43,6 +44,21 @@ const products = ref([
     sale: "-50%",
   },
 ]);
+
+const categoryData = ref([
+  {
+    title: "Категории товаров",
+    label: "Сноуборды",
+    value: 3,
+    peace: "10",
+  },
+  {
+    title: "Размеры",
+    label: "Крепления",
+    value: 6,
+    peace: "1",
+  },
+]);
 </script>
 <template>
   <div class="snow-board__wrapper">
@@ -54,7 +70,11 @@ const products = ref([
         @toggleFilter="toggleFilter"
         :isActiveSelect="isActiveSelect"
       />
-      <CategoryList v-if="isActiveSelect === true" />
+      <CategoryList
+        v-model="radio"
+        v-if="isActiveSelect === true"
+        :items="categoryData"
+      />
       <div class="snow-board__section">
         <div class="snow-board__card">
           <ProductCard

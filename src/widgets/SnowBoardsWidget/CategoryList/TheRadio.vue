@@ -1,9 +1,9 @@
 <script setup>
-import { ref } from "vue";
-const radio = ref(props.showFilter);
+// import { ref } from "vue";
+// const radio = ref(props.showFilter);
+
 const props = defineProps({
   items: Array,
-  showFilter: String,
 });
 </script>
 <template>
