@@ -1,22 +1,15 @@
 <script setup>
-import TheRadio from "./TheRadio.vue";
-import { defineEmits } from "vue";
+import CategoryProduct from "./CategoryProduct.vue";
+import { ref } from "vue";
 
-const emit = defineEmits(["category"]);
-const props = defineProps({
-  items: Array,
-  modelValue: String,
+const categoryData = ref({
+  title: "Категория товара",
+  category: ["Cноуборды", "Крепления", "Обувь"],
 });
-
-const toggleCategory = (option) => {
-  emit("update:model-value", option);
-};
 </script>
 
 <template>
-  <div class="snow-board__category">
-    <TheRadio :items="props.items" @click="toggleCategory" />
-  </div>
+  <CategoryProduct :items="categoryData" />
 </template>
 
 <style scoped>

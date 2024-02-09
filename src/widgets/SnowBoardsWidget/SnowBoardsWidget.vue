@@ -44,21 +44,6 @@ const products = ref([
     sale: "-50%",
   },
 ]);
-
-const categoryData = ref([
-  {
-    title: "Категории товаров",
-    label: "Сноуборды",
-    value: 3,
-    peace: "10",
-  },
-  {
-    title: "Размеры",
-    label: "Крепления",
-    value: 6,
-    peace: "1",
-  },
-]);
 </script>
 <template>
   <div class="snow-board__wrapper">
@@ -70,11 +55,7 @@ const categoryData = ref([
         @toggleFilter="toggleFilter"
         :isActiveSelect="isActiveSelect"
       />
-      <CategoryList
-        v-model="radio"
-        v-if="isActiveSelect === true"
-        :items="categoryData"
-      />
+      <CategoryList v-if="isActiveSelect === true" />
       <div class="snow-board__section">
         <div class="snow-board__card">
           <ProductCard

@@ -1,6 +1,6 @@
 <script setup>
-// import { ref } from "vue";
-// const radio = ref(props.showFilter);
+import { ref } from "vue";
+const radio = ref(props.showFilter);
 
 const props = defineProps({
   items: Array,
@@ -8,10 +8,9 @@ const props = defineProps({
 </script>
 <template>
   <div v-for="(item, index) in props.items" :key="index">
-    <h2>{{ item.title }}</h2>
     <div class="snow-board__category-radio">
       <el-radio-group v-model="radio">
-        <el-radio :label="item.value">{{ item.label }}</el-radio>
+        <el-radio :label="item.value">{{ item.category }}</el-radio>
       </el-radio-group>
       <ul class="snow-board__category-peace">
         <li>{{ item.peace }}</li>
