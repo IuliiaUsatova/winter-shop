@@ -55,7 +55,7 @@ const products = ref([
         @toggleFilter="toggleFilter"
         :isActiveSelect="isActiveSelect"
       />
-      <CategoryList v-if="isActiveSelect === true" />
+      <CategoryList v-model="radio" v-if="isActiveSelect === true" />
       <div class="snow-board__section">
         <div class="snow-board__card">
           <ProductCard

@@ -1,18 +1,26 @@
 <script setup>
-import { ref } from "vue";
+import { defineEmits } from "vue";
 
-// const emit = defineEmits(["category"]);
+const emit = defineEmits(["category"]);
 const props = defineProps({
   items: Object,
+  radio: String,
 });
-const radio = ref("");
+
+const toggleCategory = (option) => {
+  emit("category", option);
+};
 </script>
 <template>
   <div class="snow-board__category">
     <h2 class="snow-board__category-title">{{ props.items.title }}</h2>
     <div v-for="(category, index) in props.items.category" :key="index">
       <div>
-        <el-radio-group v-model="radio" class="ml-4">
+        <el-radio-group
+          class="ml-4"
+          @click="toggleCategory"
+          :radio="props.radio"
+        >
           <el-radio :label="category">{{ category }}</el-radio>
         </el-radio-group>
       </div>
