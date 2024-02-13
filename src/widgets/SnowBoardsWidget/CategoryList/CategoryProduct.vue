@@ -9,6 +9,7 @@ const props = defineProps({
 
 const toggleCategory = (option) => {
   emit("category", option);
+  console.log(option);
 };
 </script>
 <template>
@@ -18,8 +19,8 @@ const toggleCategory = (option) => {
       <div>
         <el-radio-group
           class="ml-4"
-          @click="toggleCategory"
-          :radio="props.radio"
+          @change="toggleCategory"
+          :model-value="props.radio"
         >
           <el-radio :label="category">{{ category }}</el-radio>
         </el-radio-group>
