@@ -1,33 +1,33 @@
 <script setup>
+import TheInput from "@/components/TheInput.vue";
 import { defineEmits } from "vue";
 
-const emit = defineEmits(["category"]);
+const emit = defineEmits(["brand"]);
 const props = defineProps({
   items: Object,
   radio: String,
 });
-
-const toggleCategory = (option) => {
-  emit("category", option);
+const toggleBrand = (option) => {
+  emit("brand", option);
 };
 </script>
 <template>
   <div class="snow-board__category">
     <h2 class="snow-board__category-title">{{ props.items.title }}</h2>
-    <div v-for="(category, index) in props.items.category" :key="index">
+    <TheInput />
+    <div v-for="(brand, index) in props.items.brand" :key="index">
       <div>
         <el-radio-group
           class="ml-4"
-          @change="toggleCategory"
+          @change="toggleBrand"
           :model-value="props.radio"
         >
-          <el-radio :label="category">{{ category }}</el-radio>
+          <el-radio :label="brand">{{ brand }}</el-radio>
         </el-radio-group>
       </div>
     </div>
   </div>
 </template>
-
 <style scoped>
 .snow-board__category {
   position: absolute;
