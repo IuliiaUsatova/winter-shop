@@ -1,7 +1,8 @@
 <script setup>
 import TheInput from "./TheInput.vue";
-import { defineEmits } from "vue";
+import { defineEmits, computed, ref } from "vue";
 
+const searchTerm = ref("");
 const emit = defineEmits(["brand"]);
 const props = defineProps({
   items: Object,
@@ -10,12 +11,17 @@ const props = defineProps({
 const toggleBrand = (option) => {
   emit("brand", option);
 };
+const filteredBrands = computed(() => {
+  return props.items.brand.filter((brand) =>
+    brand.toLowerCase().includes(searchTerm.value.toLowerCase())
+  );
+});
 </script>
 <template>
   <div class="snow-board__category">
     <h2 class="snow-board__category-title">{{ props.items.title }}</h2>
     <TheInput class="snow-board__category-input" />
-    <div v-for="(brand, index) in props.items.brand" :key="index">
+    <div v-for="(brand, index) in filteredBrands" :key="index">
       <div>
         <el-radio-group
           class="ml-4"
