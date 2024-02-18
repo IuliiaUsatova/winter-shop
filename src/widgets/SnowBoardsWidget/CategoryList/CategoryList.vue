@@ -25,23 +25,28 @@ const toggleBrand = (option) => {
 </script>
 
 <template>
-  <CategoryProduct
-    class="category-block"
-    :items="categoryData"
-    @category="toggleCategory"
-    :radio="props.modelValue"
-  />
-  <BrandSearchOptions
-    class="brand-block"
-    :items="brandData"
-    @brand="toggleBrand"
-    :radio="props.modelValue"
-  />
+  <div class="container-category">
+    <div class="left-column">
+      <CategoryProduct
+        class="category-block"
+        :items="categoryData"
+        @category="toggleCategory"
+        :radio="props.modelValue"
+      />
+      <BrandSearchOptions
+        class="brand-block"
+        :items="brandData"
+        @brand="toggleBrand"
+        :radio="props.modelValue"
+      />
+    </div>
+  </div>
 </template>
 
 <style scoped>
-.snow-board__category {
-  position: absolute;
+.container-category {
+  display: flex;
+  flex-direction: column;
 }
 .snow-board__category-title {
   margin-bottom: 23px;
@@ -51,9 +56,7 @@ const toggleBrand = (option) => {
   line-height: 1.6;
   letter-spacing: -0.32px;
 }
-
-.category-block,
-.brand-block {
+.category-block {
   margin-bottom: 20px;
 }
 </style>

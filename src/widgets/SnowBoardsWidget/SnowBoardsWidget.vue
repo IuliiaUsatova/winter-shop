@@ -55,20 +55,25 @@ const products = ref([
         @toggleFilter="toggleFilter"
         :isActiveSelect="isActiveSelect"
       />
-      <CategoryList v-model="radio" v-if="isActiveSelect === true" />
-      <div class="snow-board__section">
-        <div class="snow-board__card">
-          <ProductCard
-            v-for="(product, index) in products"
-            :key="index"
-            :products="product"
-          />
+      <div class="w">
+        <CategoryList v-model="radio" v-if="isActiveSelect === true" />
+        <div class="snow-board__section">
+          <div class="snow-board__card">
+            <ProductCard
+              v-for="(product, index) in products"
+              :key="index"
+              :products="product"
+            />
+          </div>
         </div>
       </div>
     </div>
   </div>
 </template>
 <style scoped>
+.w {
+  display: flex;
+}
 .snow-board__wrapper {
   margin-top: 50px;
 }
@@ -95,12 +100,12 @@ const products = ref([
   display: flex;
   justify-content: space-between;
   margin-top: 25px;
+  margin-left: auto;
 }
 .snow-board__card {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   flex: auto;
   gap: 25px;
-  margin-left: 320px;
 }
 </style>

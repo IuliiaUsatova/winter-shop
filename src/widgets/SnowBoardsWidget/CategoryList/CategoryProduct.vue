@@ -29,9 +29,6 @@ const toggleCategory = (option) => {
 </template>
 
 <style scoped>
-.snow-board__category {
-  position: absolute;
-}
 .snow-board__category-title {
   margin-bottom: 23px;
   font-size: 16px;

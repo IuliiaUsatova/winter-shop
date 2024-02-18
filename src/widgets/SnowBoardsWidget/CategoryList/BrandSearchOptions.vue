@@ -1,5 +1,5 @@
 <script setup>
-import TheInput from "@/components/TheInput.vue";
+import TheInput from "./TheInput.vue";
 import { defineEmits } from "vue";
 
 const emit = defineEmits(["brand"]);
@@ -14,7 +14,7 @@ const toggleBrand = (option) => {
 <template>
   <div class="snow-board__category">
     <h2 class="snow-board__category-title">{{ props.items.title }}</h2>
-    <TheInput />
+    <TheInput class="snow-board__category-input" />
     <div v-for="(brand, index) in props.items.brand" :key="index">
       <div>
         <el-radio-group
@@ -38,5 +38,8 @@ const toggleBrand = (option) => {
   font-weight: 500;
   line-height: 1.6;
   letter-spacing: -0.32px;
+}
+.snow-board__category-input {
+  margin-bottom: 20px;
 }
 </style>
