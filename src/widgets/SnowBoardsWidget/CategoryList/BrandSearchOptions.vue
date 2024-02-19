@@ -13,7 +13,7 @@ const toggleBrand = (option) => {
 };
 const filteredBrands = computed(() => {
   return props.items.brand.filter((brand) =>
-    brand.toLowerCase().includes(searchTerm.value.toLowerCase())
+    brand.toLowerCase().includes(String(searchTerm.value).toLowerCase())
   );
 });
 </script>
