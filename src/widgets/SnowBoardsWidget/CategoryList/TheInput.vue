@@ -1,3 +1,14 @@
+<script>
+import { defineEmits } from "vue";
+
+const emit = defineEmits(["update:model-value"]);
+const props = defineProps({
+  modelValue: String,
+});
+const handleInput = (event) => {
+  emit("update:model-value", event);
+};
+</script>
 <template>
   <label for="custom-input" class="benefits__block-discounts-label">
     <input
@@ -6,6 +17,8 @@
       id="custom-input"
       name="custom-input"
       placeholder="Поиск"
+      :searchTerm="props.modelValue"
+      @input="handleInput"
     />
   </label>
 </template>

@@ -29,7 +29,6 @@ const optionSelectLevel = (option) => {
 };
 
 const toggleSelectAll = (option) => {
-  console.log(option);
   emit("update:model-value", {
     place: props.modelValue.place,
     level: props.modelValue.level,

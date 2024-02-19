@@ -20,7 +20,7 @@ const filteredBrands = computed(() => {
 <template>
   <div class="snow-board__category">
     <h2 class="snow-board__category-title">{{ props.items.title }}</h2>
-    <TheInput class="snow-board__category-input" />
+    <TheInput class="snow-board__category-input" v-model="searchTerm" />
     <div v-for="(brand, index) in filteredBrands" :key="index">
       <div>
         <el-radio-group
