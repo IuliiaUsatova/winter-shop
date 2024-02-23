@@ -1,7 +1,7 @@
 <script setup>
 import CategoryProduct from "./CategoryProduct.vue";
 import BrandSearchOptions from "./BrandSearchOptions.vue";
-
+import PriceFilter from "./PriceFilter.vue";
 import { ref, defineEmits } from "vue";
 
 const props = defineProps({
@@ -39,6 +39,7 @@ const toggleBrand = (option) => {
         @brand="toggleBrand"
         :radio="props.modelValue"
       />
+      <PriceFilter class="price-block" />
     </div>
   </div>
 </template>
@@ -58,5 +59,8 @@ const toggleBrand = (option) => {
 }
 .category-block {
   margin-bottom: 20px;
+}
+.price-block {
+  margin-top: 20px;
 }
 </style>
