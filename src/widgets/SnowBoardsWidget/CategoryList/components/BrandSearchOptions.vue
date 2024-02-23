@@ -1,5 +1,5 @@
 <script setup>
-import TheInput from "./TheInput.vue";
+import TheInput from "../components/TheInput.vue";
 import { defineEmits, computed, ref } from "vue";
 
 const searchTerm = ref("");

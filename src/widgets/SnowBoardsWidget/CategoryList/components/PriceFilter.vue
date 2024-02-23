@@ -1,29 +1,54 @@
 <script setup>
 import TheButton from "@/components/TheButton.vue";
-import { defineEmits, ref } from "vue";
+import { defineEmits, ref, computed } from "vue";
 
-const value = ref([1, 2]);
-const emit = defineEmits(["price"]);
+const price = ref([1, 2]);
+// const emit = defineEmits(["price"]);
 
-const toggleBrand = (option) => {
-  emit("price", option);
-};
+// const toggleBrand = (option) => {
+//   emit("price", option);
+// };
+const startPrice = computed({
+  get() {
+    return price.value[0];
+  },
+  set(newValue) {
+    price.value[0] = Number(newValue);
+  },
+});
+const finishPrice = computed({
+  get() {
+    return price.value[1];
+  },
+  set(newValue) {
+    price.value[1] = Number(newValue);
+  },
+});
 </script>
 <template>
   <div class="snow-board__category">
     <h2 class="snow-board__category-title">Цена, ₽</h2>
     <div class="snow-board__price-wrapper">
-      <input class="snow-board__category-input left-input" />
+      <input
+        class="snow-board__category-input left-input"
+        v-model="startPrice"
+      />
       <p>-</p>
-      <input class="snow-board__category-input right-input" />
+      <input
+        class="snow-board__category-input right-input"
+        v-model="finishPrice"
+      />
       <TheButton class="btn-black snow-board__small-btn">OK</TheButton>
     </div>
     <div class="slider-demo-block">
-      <el-slider v-model="value" range show-stops :max="2" />
+      <el-slider v-model="price" range :max="100000" class="color" />
     </div>
   </div>
 </template>
 <style scoped>
+.color ::v-deep .el-slider__bar {
+  background-color: #eb5757;
+}
 .snow-board__category-title {
   margin-bottom: 23px;
   font-size: 16px;
@@ -64,7 +89,7 @@ const toggleBrand = (option) => {
   margin-top: 0;
   margin-left: 12px;
 }
-.el-slider__bar {
+.bar {
   background-color: #eb5757;
 }
 </style>

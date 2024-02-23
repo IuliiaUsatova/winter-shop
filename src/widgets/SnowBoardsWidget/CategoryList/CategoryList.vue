@@ -1,7 +1,7 @@
 <script setup>
-import CategoryProduct from "./CategoryProduct.vue";
-import BrandSearchOptions from "./BrandSearchOptions.vue";
-import PriceFilter from "./PriceFilter.vue";
+import CategoryProduct from "./components/CategoryProduct.vue";
+import BrandSearchOptions from "./components/BrandSearchOptions.vue";
+import PriceFilter from "./components/PriceFilter.vue";
 import { ref, defineEmits } from "vue";
 
 const props = defineProps({
